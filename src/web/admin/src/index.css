@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #0b0f19;
+    --colors-primary: #0066cc;
+    --colors-primary-focus: #0071e3;
+    --colors-primary-on-dark: #2997ff;
+    --colors-canvas: #ffffff;
+    --colors-canvas-parchment: #f5f5f7;
+    --colors-surface-pearl: #fafafc;
+    --colors-surface-tile-1: #272729;
+    --colors-surface-tile-2: #2a2a2c;
+    --colors-surface-tile-3: #252527;
+    --colors-surface-black: #000000;
+    --colors-ink: #1d1d1f;
+    --colors-divider-soft: #f0f0f0;
+    --colors-hairline: #e0e0e0;
+  }
+
+  body {
+    background-color: var(--colors-surface-black);
+    color: var(--colors-canvas-parchment);
+    font-family: 'SF Pro Text', 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.47;
+    letter-spacing: -0.374px;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  /* Display Headings Pacing - SF Pro Display */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    color: #ffffff;
+  }
+}
+
+/* Custom Components for Apple Aesthetics */
+.apple-global-nav {
+  height: 44px;
+  background-color: var(--colors-surface-black);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.apple-sub-nav-frosted {
+  height: 52px;
+  background-color: rgba(29, 29, 31, 0.8);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.apple-store-card {
+  background-color: #1c1c1e;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  transition: border-color 0.3s ease;
+}
+
+.apple-store-card:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.apple-pill-btn {
+  background-color: var(--colors-primary);
+  color: #ffffff;
+  font-family: 'SF Pro Text', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 9999px;
+  padding: 8px 18px;
+  transition: transform 0.15s ease;
+}
+
+.apple-pill-btn:active {
+  transform: scale(0.95);
+}
+
+.apple-ghost-btn {
+  background-color: transparent;
+  color: var(--colors-primary-on-dark);
+  border: 1px solid var(--colors-primary-on-dark);
+  font-family: 'SF Pro Text', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 9999px;
+  padding: 8px 18px;
+  transition: transform 0.15s ease, background-color 0.2s;
+}
+
+.apple-ghost-btn:hover {
+  background-color: rgba(41, 151, 255, 0.05);
+}
+
+.apple-ghost-btn:active {
+  transform: scale(0.95);
+}
+
+.apple-utility-btn {
+  background-color: var(--colors-surface-tile-1);
+  color: #ffffff;
+  font-family: 'SF Pro Text', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  border-radius: 8px;
+  padding: 6px 14px;
+  transition: transform 0.15s ease;
+}
+
+.apple-utility-btn:active {
+  transform: scale(0.95);
+}
+
+.apple-input {
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.apple-input:focus {
+  border-color: var(--colors-primary-on-dark);
+}
+
+/* Minimalist Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--colors-surface-black);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* Premium Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 3s ease infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Glass morphism utility */
+.glass-card {
+  background: rgba(28, 28, 30, 0.7);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+}
+
+/* Enhanced Recharts tooltip override */
+.recharts-tooltip-wrapper {
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+}

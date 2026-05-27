@@ -1,0 +1,111 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String        @id // Telegram user ID (stored as string)
+  username     String?
+  name         String?
+  balance      Float         @default(0.0) // Balance for deposit reseller system
+  role         String        @default("USER") // USER, RESELLER, ADMIN
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  transactions Transaction[]
+
+  @@map("users")
+}
+
+model Transaction {
+  id            String   @id @default(uuid())
+  refId         String   @unique // Internal / Tokopay Reference ID
+  telegramId    String
+  user          User     @relation(fields: [telegramId], references: [id])
+  productCode   String
+  productName   String
+  gameName      String
+  targetId      String   // Player ID / Target Account ID
+  targetZone    String?  // Zone ID / Server ID (if applicable)
+  quantity      Int      @default(1) // Purchased quantity for bulk orders
+  amount        Float    // Amount to be paid by user
+  paymentMethod String   @default("QRIS")
+  paymentStatus String   @default("UNPAID") // UNPAID, PAID, EXPIRED
+  orderStatus   String   @default("PENDING") // PENDING, PROCESSING, SUCCESS, FAILED
+  paymentLink   String?  @db.Text
+  paymentQr     String?  @db.Text // QR code data or image URL
+  sn            String?  // Serial Number / Invoice receipt from supplier (Digiflazz)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("transactions")
+}
+
+model Product {
+  code           String      @id // Code from Digiflazz (e.g. ml10)
+  gameName       String      // Game/App category (e.g. Canva)
+  name           String      // Product package name (e.g. Pro 1 Month)
+  price          Float       // Reseller selling price
+  status         Boolean     @default(true) // active or inactive
+  provider       String      @default("H2H") // H2H (Digiflazz) or MANUAL (Stok Mandiri)
+  description    String?     @db.Text // Product description (with ticks, checklist, markdown)
+  wholesaleRules String?     @db.Text // Tiered wholesale pricing rules in stringified JSON
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+  stockItems     StockItem[]
+
+  @@map("products")
+}
+
+model StockItem {
+  id          String   @id @default(uuid())
+  productCode String
+  product     Product  @relation(fields: [productCode], references: [code], onDelete: Cascade)
+  value       String   @db.Text // stores the account detail (e.g. email|pass)
+  isSold      Boolean  @default(false)
+  transactionId String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("stock_items")
+}
+
+model Voucher {
+  code      String   @id
+  discount  Float    // Discount amount in Rupiah
+  maxUse    Int      @default(1)
+  usedCount Int      @default(0)
+  status    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("vouchers")
+}
+
+model Blacklist {
+  telegramId String   @id
+  reason     String?
+  createdAt  DateTime @default(now())
+
+  @@map("blacklist")
+}
+
+model Category {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("categories")
+}
+
+model Setting {
+  key       String   @id
+  value     String   @db.Text
+  updatedAt DateTime @updatedAt
+
+  @@map("settings")
+}

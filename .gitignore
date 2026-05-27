@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+src/web/admin/node_modules/
+
+# Build outputs
+dist/
+
+# Environment files (contain secrets)
+.env
+.env.local
+
+# Logs
+logs/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Prisma
+prisma/*.db
+prisma/*.db-journal
