@@ -21,7 +21,7 @@ async function main() {
   const server = expressApp.listen(config.port, () => {
     console.log(`📡 Express API Server is listening on http://localhost:${config.port}`);
     console.log(`🔗 Webhook URL: ${config.webhookUrl}`);
-    console.log(`🛡️ Tokopay Webhook: ${config.webhookUrl}/webhooks/tokopay`);
+    console.log(`🛡️ Tripay Webhook: ${config.webhookUrl}/webhooks/tripay`);
     console.log(`🧪 Sandbox Payment Simulator: ${config.webhookUrl}/sandbox/pay?refId=TEST-REF&amount=15000`);
   });
 

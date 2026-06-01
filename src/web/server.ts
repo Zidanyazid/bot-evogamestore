@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import axios from 'axios';
 import path from 'path';
 import { prisma } from '../db/client';
-import { TokopayService } from '../services/tokopay';
+import { TripayService } from '../services/tripay';
 import { DigiflazzService } from '../services/digiflazz';
 import { config } from '../config/env';
 import { Bot } from 'grammy';
@@ -19,35 +19,40 @@ export function setBotInstance(bot: Bot<any>) {
 }
 
 /**
- * Endpoint for Tokopay Payment Gateway Webhook Callback
+ * Endpoint for Tripay Payment Gateway Webhook Callback
+ * Tripay sends X-Callback-Signature header with HMAC-SHA256(rawBody, privateKey)
  */
-app.post('/webhooks/tokopay', async (req: Request, res: Response): Promise<void> => {
-  const { merchant_id, ref_id, reff_id, status, nominal, signature } = req.body;
-  
-  // Tokopay sometimes uses reff_id or ref_id, let's handle both
-  const finalRefId = ref_id || reff_id;
+// Capture raw body for signature verification
+let rawBodyStore = '';
+app.use('/webhooks/tripay', express.json({
+  verify: (req: any, _res, buf) => { rawBodyStore = buf.toString(); }
+}));
 
-  console.log(`[Tokopay Webhook] Received callback for RefID: ${finalRefId}, Status: ${status}`);
+app.post('/webhooks/tripay', async (req: Request, res: Response): Promise<void> => {
+  const { reference, merchant_ref, status, total_amount } = req.body;
+  const signature = req.headers['x-callback-signature'] as string;
+  const finalRefId = merchant_ref;
+
+  console.log(`[Tripay Webhook] Received callback for RefID: ${finalRefId}, Status: ${status}, Reference: ${reference}`);
 
   if (!finalRefId || !signature) {
-    res.status(400).json({ status: false, message: 'Invalid payload parameters' });
+    res.status(400).json({ success: false, message: 'Invalid payload parameters' });
     return;
   }
 
-  // 1. Verify Signature
-  const isValid = TokopayService.verifyCallbackSignature(signature, finalRefId);
+  // 1. Verify Signature using raw body
+  const isValid = TripayService.verifyCallbackSignature(rawBodyStore, signature);
   if (!isValid) {
-    console.error(`[Tokopay Webhook] Signature verification failed for RefID: ${finalRefId}`);
-    res.status(401).json({ status: false, message: 'Invalid signature verification' });
+    console.error(`[Tripay Webhook] Signature verification failed for RefID: ${finalRefId}`);
+    res.status(401).json({ success: false, message: 'Invalid signature verification' });
     return;
   }
 
-  // 2. Process payment if status is successful/paid
-  // Tokopay typically sends "Success" or 1 for successful payment
-  const isPaid = status === 'Success' || status === 'success' || String(status) === '1';
+  // 2. Process payment if status is PAID
+  const isPaid = status === 'PAID';
 
   if (!isPaid) {
-    console.warn(`[Tokopay Webhook] Transaction not successful yet. Status: ${status}`);
+    console.warn(`[Tripay Webhook] Transaction not successful yet. Status: ${status}`);
     res.json({ status: true }); // Acknowledge receipt
     return;
   }
@@ -60,14 +65,14 @@ app.post('/webhooks/tokopay', async (req: Request, res: Response): Promise<void>
     });
 
     if (!transaction) {
-      console.error(`[Tokopay Webhook] Transaction not found for RefID: ${finalRefId}`);
+      console.error(`[Tripay Webhook] Transaction not found for RefID: ${finalRefId}`);
       res.status(404).json({ status: false, message: 'Transaction not found' });
       return;
     }
 
     // Prevent double processing
     if (transaction.paymentStatus === 'PAID') {
-      console.log(`[Tokopay Webhook] Transaction RefID: ${finalRefId} has already been processed.`);
+      console.log(`[Tripay Webhook] Transaction RefID: ${finalRefId} has already been processed.`);
       res.json({ status: true });
       return;
     }
@@ -296,7 +301,7 @@ app.get('/sandbox/pay', async (req: Request, res: Response) => {
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Tokopay Sandbox Simulator</title>
+      <title>Tripay Sandbox Simulator</title>
       <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
       <style>
         * {
@@ -420,7 +425,7 @@ app.get('/sandbox/pay', async (req: Request, res: Response) => {
     </head>
     <body>
       <div class="container">
-        <div class="logo">TOKOPAY SIMULATOR</div>
+        <div class="logo">TRIPAY SIMULATOR</div>
         <h3 style="margin-bottom: 20px; font-weight: 600;">Selesaikan Pembayaran</h3>
         
         <div class="invoice-card">
@@ -486,7 +491,7 @@ app.get('/sandbox/pay', async (req: Request, res: Response) => {
 });
 
 /**
- * Sandbox trigger helper to fire a webhook POST payload representing a Tokopay Callback
+ * Sandbox trigger helper to fire a webhook POST payload representing a Tripay Callback
  */
 app.post('/sandbox/trigger-callback', async (req: Request, res: Response) => {
   const { refId, amount } = req.body;
@@ -497,20 +502,20 @@ app.post('/sandbox/trigger-callback', async (req: Request, res: Response) => {
   }
 
   // Generate signature matching the sandbox verification
-  const generatedSignature = TokopayService.generateSignature(refId);
+  const generatedSignature = TripayService.generateSignature(refId, amount);
 
   try {
     // Send simulated callback using axios directly to ourselves
     const callbackPayload = {
-      merchant_id: config.tokopay.merchantId || 'MOCK_MERCHANT',
-      ref_id: refId,
-      nominal: amount,
+      reference: 'MOCK_REF',
+      merchant_ref: refId,
+      total_amount: amount,
       status: 'Success',
       signature: generatedSignature
     };
 
     console.log('[Sandbox Simulator] Injecting mock callback payload...');
-    const result = await axios.post(`${config.webhookUrl}/webhooks/tokopay`, callbackPayload);
+    const result = await axios.post(`${config.webhookUrl}/webhooks/tripay`, callbackPayload);
 
     res.json({ success: true, callbackResult: result.data });
   } catch (error: any) {

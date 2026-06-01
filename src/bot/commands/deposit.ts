@@ -1,6 +1,6 @@
 import { MyContext, MyConversation } from '../context';
 import { prisma } from '../../db/client';
-import { TokopayService } from '../../services/tokopay';
+import { TripayService } from '../../services/tripay';
 
 /**
  * Conversation handler for interactive balance deposits
@@ -44,15 +44,15 @@ export async function depositConversation(conversation: MyConversation, ctx: MyC
 
   await ctx.reply('⏳ _Sedang membuat invoice QRIS otomatis..._');
 
-  // Let's call the Tokopay service to generate invoice
-  const tokopayRes = await TokopayService.createOrder({
+  // Let's call the Tripay service to generate invoice
+  const tripayRes = await TripayService.createOrder({
     refId,
     amount: grossAmount,
-    paymentChannel: 'QRISREALTIME'
+    paymentMethod: 'QRIS'
   });
 
-  if (!tokopayRes.success || !tokopayRes.paymentLink) {
-    await ctx.reply(`❌ *Gagal membuat invoice deposit:*\n\`${tokopayRes.errorMessage || 'Server sibuk'}\`\n\nSilakan coba beberapa saat lagi atau hubungi admin.`, {
+  if (!tripayRes.success || !tripayRes.paymentLink) {
+    await ctx.reply(`❌ *Gagal membuat invoice deposit:*\n\`${tripayRes.errorMessage || 'Server sibuk'}\`\n\nSilakan coba beberapa saat lagi atau hubungi admin.`, {
       parse_mode: 'Markdown'
     });
     return;
@@ -72,8 +72,8 @@ export async function depositConversation(conversation: MyConversation, ctx: MyC
         paymentMethod: 'QRIS',
         paymentStatus: 'UNPAID',
         orderStatus: 'PENDING',
-        paymentLink: tokopayRes.paymentLink,
-        paymentQr: tokopayRes.paymentQr || null
+        paymentLink: tripayRes.paymentLink,
+        paymentQr: tripayRes.paymentQr || null
       }
     });
 
@@ -87,11 +87,11 @@ export async function depositConversation(conversation: MyConversation, ctx: MyC
       `1. Klik tautan pembayaran di bawah untuk melihat QRIS.\n` +
       `2. Scan QRIS menggunakan DANA, OVO, GoPay, LinkAja, ShopeePay, atau Mobile Banking Anda.\n` +
       `3. Setelah pembayaran sukses dilakukan, saldo Anda akan *otomatis bertambah* secara real-time!\n\n` +
-      `🔗 *Tautan Bayar:* [Klik di Sini untuk Membayar](${tokopayRes.paymentLink})`;
+      `🔗 *Tautan Bayar:* [Klik di Sini untuk Membayar](${tripayRes.paymentLink})`;
 
     // If QR code is present as a link/image, let's send it
-    if (tokopayRes.paymentQr && tokopayRes.paymentQr.startsWith('http')) {
-      await ctx.replyWithPhoto(tokopayRes.paymentQr, {
+    if (tripayRes.paymentQr && tripayRes.paymentQr.startsWith('http')) {
+      await ctx.replyWithPhoto(tripayRes.paymentQr, {
         caption: paymentMsg,
         parse_mode: 'Markdown'
       });

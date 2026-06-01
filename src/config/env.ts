@@ -9,12 +9,13 @@ export const config = {
   telegramBotToken: process.env.TELEGRAM_BOT_TOKEN || '',
   databaseUrl: process.env.DATABASE_URL || '',
   
-  // Tokopay Settings
-  tokopay: {
-    merchantId: process.env.TOKOPAY_MERCHANT_ID || '',
-    secretKey: process.env.TOKOPAY_SECRET_KEY || '',
-    isSandbox: !process.env.TOKOPAY_MERCHANT_ID || 
-                process.env.TOKOPAY_MERCHANT_ID.includes('PLACEHOLDER')
+  // Tripay Settings
+  tripay: {
+    apiKey: process.env.TRIPAY_API_KEY || '',
+    privateKey: process.env.TRIPAY_PRIVATE_KEY || '',
+    merchantCode: process.env.TRIPAY_MERCHANT_CODE || '',
+    isSandbox: !process.env.TRIPAY_API_KEY || 
+                process.env.TRIPAY_API_KEY.includes('PLACEHOLDER')
   },
 
   // Digiflazz Settings
@@ -29,8 +30,8 @@ export const config = {
 };
 
 // Log warning about sandboxes
-if (config.tokopay.isSandbox) {
-  console.warn('⚠️ Tokopay credentials are missing or placeholders. Running in SANDBOX SIMULATION mode.');
+if (config.tripay.isSandbox) {
+  console.warn('⚠️ Tripay credentials are missing or placeholders. Running in SANDBOX SIMULATION mode.');
 }
 if (config.digiflazz.isSandbox) {
   console.warn('⚠️ Digiflazz credentials are missing or placeholders. Running in SANDBOX SIMULATION mode.');

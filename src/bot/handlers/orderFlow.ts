@@ -1,6 +1,6 @@
 import { MyContext, MyConversation } from '../context';
 import { prisma } from '../../db/client';
-import { TokopayService } from '../../services/tokopay';
+import { TripayService } from '../../services/tripay';
 import { DigiflazzService } from '../../services/digiflazz';
 import { InlineKeyboard, InputFile } from 'grammy';
 import path from 'path';
@@ -350,14 +350,16 @@ export async function buyAppConversation(conversation: MyConversation, ctx: MyCo
 
     await ctx.reply('⏳ _Sedang membuat invoice QRIS otomatis..._');
 
-    const tokopayRes = await TokopayService.createOrder({
+    const tripayRes = await TripayService.createOrder({
       refId,
+      productName: product.name,
+      customerName: ctx.from?.first_name || 'Pelanggan',
       amount: grossAmount,
-      paymentChannel: 'QRISREALTIME'
+      paymentMethod: 'QRIS'
     });
 
-    if (!tokopayRes.success || !tokopayRes.paymentLink) {
-      await ctx.reply(`❌ *Gagal membuat invoice QRIS:* \`${tokopayRes.errorMessage || 'Server sibuk'}\``);
+    if (!tripayRes.success || !tripayRes.paymentLink) {
+      await ctx.reply(`❌ *Gagal membuat invoice QRIS:* \`${tripayRes.errorMessage || 'Server sibuk'}\``);
       return;
     }
 
@@ -375,8 +377,8 @@ export async function buyAppConversation(conversation: MyConversation, ctx: MyCo
           paymentMethod: 'QRIS',
           paymentStatus: 'UNPAID',
           orderStatus: 'PENDING',
-          paymentLink: tokopayRes.paymentLink,
-          paymentQr: tokopayRes.paymentQr || null
+          paymentLink: tripayRes.paymentLink,
+          paymentQr: tripayRes.paymentQr || null
         }
       });
 
@@ -392,10 +394,10 @@ export async function buyAppConversation(conversation: MyConversation, ctx: MyCo
         `📱 *Cara Pembayaran:*\n` +
         `1. Klik link pembayaran atau scan QRIS di bawah.\n` +
         `2. Setelah bayar sukses, produk premium akan *otomatis diproses* oleh bot dan dikirim ke Anda!\n\n` +
-        `🔗 *Tautan Bayar:* [Klik di Sini untuk Membayar](${tokopayRes.paymentLink})`;
+        `🔗 *Tautan Bayar:* [Klik di Sini untuk Membayar](${tripayRes.paymentLink})`;
 
-      if (tokopayRes.paymentQr && tokopayRes.paymentQr.startsWith('http')) {
-        await ctx.replyWithPhoto(tokopayRes.paymentQr, {
+      if (tripayRes.paymentQr && tripayRes.paymentQr.startsWith('http')) {
+        await ctx.replyWithPhoto(tripayRes.paymentQr, {
           caption: qrisMsg,
           parse_mode: 'Markdown'
         });
