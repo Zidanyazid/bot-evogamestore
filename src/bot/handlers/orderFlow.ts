@@ -344,8 +344,8 @@ export async function buyAppConversation(conversation: MyConversation, ctx: MyCo
     }
 
   } else {
-    // Pay via QRIS
-    const fee = Math.ceil(totalAmount * 0.017); // 1.7% QRISREALTIME fee
+    // Pay via QRIS2 DIRECT: Rp 750 + 0.7%
+    const fee = 750 + Math.ceil(totalAmount * 0.007);
     const grossAmount = totalAmount + fee;
 
     await ctx.reply('⏳ _Sedang membuat invoice QRIS otomatis..._');
@@ -386,10 +386,10 @@ export async function buyAppConversation(conversation: MyConversation, ctx: MyCo
         `📋 *INVOICE PEMBAYARAN QRIS* 📋\n\n` +
         `🧾 *No. Referensi:* \`${refId}\`\n` +
         `📱 Produk: *${product.name}*\n` +
-        `🛍️ Jumlah: *${qty}* pcs\n` +
+        `🛍️ Jumlah: *${qty} pcs\n` +
         `📧 Target: \`${targetId}\`\n` +
         `💵 Harga Produk: *Rp ${totalAmount.toLocaleString('id-ID')}*\n` +
-        `🔌 Biaya Layanan (QRIS 1.7%): *Rp ${fee.toLocaleString('id-ID')}*\n` +
+        `🔌 Biaya Layanan: *Rp ${fee.toLocaleString('id-ID')}* (Rp 750 + 0.7%)\n` +
         `💰 *Total Bayar: Rp ${grossAmount.toLocaleString('id-ID')}*\n\n` +
         `📱 *Cara Pembayaran:*\n` +
         `1. Klik link pembayaran atau scan QRIS di bawah.\n` +
