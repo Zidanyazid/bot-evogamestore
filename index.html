@@ -52,12 +52,18 @@ h3{font-family:'Archivo Black',sans-serif;font-size:32px;line-height:1.1;text-tr
 .feature-card{border:3px solid #000;padding:24px;background:#fff}
 .feature-card h4{font-family:'Work Sans',sans-serif;font-size:22px;font-weight:600;margin-bottom:12px;text-transform:uppercase}
 .feature-card p{font-size:16px;line-height:1.6}
+.feature-icon{width:52px;height:52px;border:3px solid #000;display:flex;align-items:center;justify-content:center;margin-bottom:16px;transition:transform .2s}
+.feature-card:hover .feature-icon{transform:scale(1.1) rotate(-3deg)}
+.feature-icon img{width:28px;height:28px;object-fit:contain}
 
 /* PRODUCTS */
 .products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px}
 .product-card{border:3px solid #000;padding:0;transition:border-width .15s}
 .product-card:hover{border-width:5px}
-.product-card .cover{height:120px;display:flex;align-items:center;justify-content:center;font-size:48px;border-bottom:3px solid #000;background:#f0f0f0}
+.product-card .cover{height:120px;display:flex;align-items:center;justify-content:center;border-bottom:3px solid #000;padding:24px;transition:transform .2s}
+.product-card:hover .cover{transform:scale(1.02)}
+.product-card .cover img{width:52px;height:52px;object-fit:contain;filter:drop-shadow(0 1px 2px rgba(0,0,0,.1))}
+.product-card .cover.fallback{font-family:'Archivo Black',sans-serif;font-size:28px;color:#fff;text-transform:uppercase;letter-spacing:2px}
 .product-card .info{padding:16px}
 .product-card .category{font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#00f;margin-bottom:4px}
 .product-card .name{font-size:16px;font-weight:600;margin-bottom:8px}
@@ -138,26 +144,32 @@ h3{font-family:'Archivo Black',sans-serif;font-size:32px;line-height:1.1;text-tr
     <h2>KENAPA EVO?</h2>
     <div class="features-grid">
       <div class="feature-card">
+        <div class="feature-icon" style="background:#e8f0fe"><img src="https://cdn.simpleicons.org/telegram/26a5e4" alt=""></div>
         <h4>OTOMATIS 24/7</h4>
         <p>Proses instan tanpa menunggu admin. Beli kapan saja, produk dikirim langsung.</p>
       </div>
       <div class="feature-card">
+        <div class="feature-icon" style="background:#fff5e0"><img src="https://cdn.simpleicons.org/lock/e8a400" alt=""></div>
         <h4>PEMBAYARAN AMAN</h4>
         <p>Gateway terverifikasi (Tripay). QRIS, e-wallet, mobile banking — semua bisa.</p>
       </div>
       <div class="feature-card">
+        <div class="feature-icon" style="background:#e8ffe0;font-family:'Archivo Black',sans-serif;font-size:28px">Rp</div>
         <h4>HARGA TERJANGKAU</h4>
         <p>Mulai dari Rp 3.000. Harga kompetitif untuk semua produk digital premium.</p>
       </div>
       <div class="feature-card">
+        <div class="feature-icon" style="background:#000;color:#fff;font-family:'Archivo Black',sans-serif;font-size:28px">✓</div>
         <h4>GARANSI & REFUND</h4>
         <p>Produk tidak sesuai? Klaim garansi dalam 24 jam setelah pengiriman.</p>
       </div>
       <div class="feature-card">
+        <div class="feature-icon" style="background:#000"><img src="https://cdn.simpleicons.org/send/ffffff" alt=""></div>
         <h4>MUDAH VIA TELEGRAM</h4>
         <p>Cukup via Telegram. Tidak perlu install aplikasi tambahan apapun.</p>
       </div>
       <div class="feature-card">
+        <div class="feature-icon" style="background:#e8f0fe"><img src="https://cdn.simpleicons.org/headset/0066cc" alt=""></div>
         <h4>CS RESPONSIF</h4>
         <p>Tim support siap membantu via Telegram untuk kendala apapun.</p>
       </div>
@@ -169,19 +181,19 @@ h3{font-family:'Archivo Black',sans-serif;font-size:32px;line-height:1.1;text-tr
   <div class="container">
     <h2>PREMIUM APPS</h2>
     <div class="products-grid">
-      <div class="product-card"><div class="cover">🔴</div><div class="info"><div class="category">YOUTUBE PREMIUM</div><div class="name">1 Bulan</div><div class="price">Rp 9.000</div></div></div>
-      <div class="product-card"><div class="cover">🎨</div><div class="info"><div class="category">CANVA PRO</div><div class="name">1 Bulan</div><div class="price">Rp 5.000</div></div></div>
-      <div class="product-card"><div class="cover">📹</div><div class="info"><div class="category">CAPCUT PRO</div><div class="name">1 Bulan</div><div class="price">Rp 12.000</div></div></div>
-      <div class="product-card"><div class="cover">🤖</div><div class="info"><div class="category">CHATGPT PLUS</div><div class="name">1 Bulan</div><div class="price">Rp 35.000</div></div></div>
-      <div class="product-card"><div class="cover">☄️</div><div class="info"><div class="category">GEMINI ADVANCED</div><div class="name">1 Bulan</div><div class="price">Rp 40.000</div></div></div>
-      <div class="product-card"><div class="cover">🧠</div><div class="info"><div class="category">GROK AI</div><div class="name">1 Bulan</div><div class="price">Rp 38.000</div></div></div>
-      <div class="product-card"><div class="cover">🍿</div><div class="info"><div class="category">PRIME VIDEO</div><div class="name">1 Bulan</div><div class="price">Rp 8.000</div></div></div>
-      <div class="product-card"><div class="cover">📺</div><div class="info"><div class="category">VIDIO PLATINUM</div><div class="name">1 Bulan</div><div class="price">Rp 25.000</div></div></div>
-      <div class="product-card"><div class="cover">🎬</div><div class="info"><div class="category">VIU PREMIUM</div><div class="name">1 Bulan</div><div class="price">Rp 7.000</div></div></div>
-      <div class="product-card"><div class="cover">🎬</div><div class="info"><div class="category">ALIGHT MOTION</div><div class="name">1 Bulan</div><div class="price">Rp 15.000</div></div></div>
-      <div class="product-card"><div class="cover">💼</div><div class="info"><div class="category">GSUITE BUSINESS</div><div class="name">1 Bulan</div><div class="price">Rp 50.000</div></div></div>
-      <div class="product-card"><div class="cover">🔗</div><div class="info"><div class="category">YOUTUBE PREMIUM</div><div class="name">3 Bulan</div><div class="price">Rp 24.000</div></div></div>
-      <div class="product-card"><div class="cover">🎨</div><div class="info"><div class="category">CANVA PRO</div><div class="name">1 Tahun</div><div class="price">Rp 25.000</div></div></div>
+      <div class="product-card"><div class="cover" style="background:#fff"><img src="https://cdn.simpleicons.org/youtube/ff0000" alt="YouTube"></div><div class="info"><div class="category">YOUTUBE PREMIUM</div><div class="name">1 Bulan</div><div class="price">Rp 9.000</div></div></div>
+      <div class="product-card"><div class="cover" style="background:#f0fcf8"><img src="https://cdn.simpleicons.org/canva/00c4cc" alt="Canva"></div><div class="info"><div class="category">CANVA PRO</div><div class="name">1 Bulan</div><div class="price">Rp 5.000</div></div></div>
+      <div class="product-card"><div class="cover" style="background:#000"><img src="https://cdn.simpleicons.org/capcut/ffffff" alt="CapCut"></div><div class="info"><div class="category">CAPCUT PRO</div><div class="name">1 Bulan</div><div class="price">Rp 12.000</div></div></div>
+      <div class="product-card"><div class="cover" style="background:#1a1a2e"><img src="https://cdn.simpleicons.org/openai/ffffff" alt="OpenAI"></div><div class="info"><div class="category">CHATGPT PLUS</div><div class="name">1 Bulan</div><div class="price">Rp 35.000</div></div></div>
+      <div class="product-card"><div class="cover" style="background:#e8f0fe"><img src="https://cdn.simpleicons.org/googlegemini/4285f4" alt="Gemini"></div><div class="info"><div class="category">GEMINI ADVANCED</div><div class="name">1 Bulan</div><div class="price">Rp 40.000</div></div></div>
+      <div class="product-card"><div class="cover" style="background:#000"><img src="https://cdn.simpleicons.org/xai/ffffff" alt="xAI"></div><div class="info"><div class="category">GROK AI</div><div class="name">1 Bulan</div><div class="price">Rp 38.000</div></div></div>
+      <div class="product-card"><div class="cover" style="background:#003366"><img src="https://cdn.simpleicons.org/primevideo/ffffff" alt="Prime Video"></div><div class="info"><div class="category">PRIME VIDEO</div><div class="name">1 Bulan</div><div class="price">Rp 8.000</div></div></div>
+      <div class="product-card"><div class="cover fallback" style="background:linear-gradient(135deg,#ff6600,#ff8833)">V</div><div class="info"><div class="category">VIDIO PLATINUM</div><div class="name">1 Bulan</div><div class="price">Rp 25.000</div></div></div>
+      <div class="product-card"><div class="cover" style="background:#ffcc00"><img src="https://cdn.simpleicons.org/viu/000000" alt="Viu"></div><div class="info"><div class="category">VIU PREMIUM</div><div class="name">1 Bulan</div><div class="price">Rp 7.000</div></div></div>
+      <div class="product-card"><div class="cover fallback" style="background:linear-gradient(135deg,#6c3cbe,#9b59b6)">AM</div><div class="info"><div class="category">ALIGHT MOTION</div><div class="name">1 Bulan</div><div class="price">Rp 15.000</div></div></div>
+      <div class="product-card"><div class="cover" style="background:#e8f0fe"><img src="https://cdn.simpleicons.org/google/4285f4" alt="Google Workspace"></div><div class="info"><div class="category">GSUITE BUSINESS</div><div class="name">1 Bulan</div><div class="price">Rp 50.000</div></div></div>
+      <div class="product-card"><div class="cover" style="background:#fff"><img src="https://cdn.simpleicons.org/youtube/ff0000" alt="YouTube"></div><div class="info"><div class="category">YOUTUBE PREMIUM</div><div class="name">3 Bulan</div><div class="price">Rp 24.000</div></div></div>
+      <div class="product-card"><div class="cover" style="background:#f0fcf8"><img src="https://cdn.simpleicons.org/canva/00c4cc" alt="Canva"></div><div class="info"><div class="category">CANVA PRO</div><div class="name">1 Tahun</div><div class="price">Rp 25.000</div></div></div>
     </div>
   </div>
 </section>
