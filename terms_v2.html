@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syarat & Ketentuan — Evo Game Store</title>
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-primary: #6366f1; --color-primary-pressed: #4f46e5; --color-primary-active: #3730a3;
+  --color-commerce: #d53b00; --color-commerce-pressed: #aa2f00; --color-accent: #a855f7;
+  --color-canvas-dark: #000000; --color-surface-dark-elevated: #121314; --color-surface-dark-card: #181818;
+  --color-canvas-light: #ffffff; --color-surface-soft: #f3f3f3; --color-surface-card: #f5f7fa;
+  --color-surface-filter: rgba(245,247,250,0.3); --color-hairline-light: #f3f3f3; --color-hairline-dark: rgba(229,229,229,0.2);
+  --color-ink: #000000; --color-ink-deep: #121314; --color-body-light: rgba(0,0,0,0.6);
+  --color-mute-light: #6b6b6b; --color-ash-light: #cccccc;
+  --color-on-dark: #ffffff; --color-body-dark: rgba(255,255,255,0.7);
+  --color-on-dark-mute: #cccccc; --color-mute-dark: rgba(229,229,229,0.55);
+  --color-warning: #c81b3a; --color-link-light: #4f46e5; --color-link-dark: #818cf8;
+  --space-xxs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px;
+  --space-lg: 24px; --space-xl: 32px; --space-xxl: 48px; --space-section: 96px;
+  --radius-none: 0px; --radius-sm: 4px; --radius-md: 8px; --radius-full: 9999px;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--color-canvas-dark); color: var(--color-on-dark);
+  font-size: 18px; line-height: 1.5; font-weight: 400; -webkit-font-smoothing: antialiased;
+}
+.display-md { font-size: 35px; font-weight: 300; line-height: 1.25; }
+.heading-xl { font-size: 28px; font-weight: 300; line-height: 1.25; letter-spacing: 0.1px; }
+.heading-lg { font-size: 22px; font-weight: 300; line-height: 1.25; letter-spacing: 0.1px; }
+.heading-md { font-size: 18px; font-weight: 600; line-height: 1; }
+.body-md { font-size: 18px; font-weight: 400; line-height: 1.5; letter-spacing: 0.1px; }
+.body-sm { font-size: 16px; font-weight: 400; line-height: 1.5; }
+.caption-md { font-size: 14px; font-weight: 400; line-height: 1.5; }
+.caption-sm { font-size: 12px; font-weight: 500; line-height: 1.5; }
+.button-lg { font-size: 18px; font-weight: 700; line-height: 1.25; letter-spacing: 0.45px; }
+.btn { display: inline-flex; align-items: center; gap: var(--space-xs); text-decoration: none; border: none; cursor: pointer; transition: all 0.2s; font-family: inherit; white-space: nowrap; }
+.btn-primary { background: var(--color-primary); color: var(--color-on-dark); padding: 12px 28px; height: 48px; border-radius: var(--radius-full); }
+.btn-primary:hover { background: var(--color-primary-pressed); }
+.btn-secondary-dark { background: transparent; color: var(--color-on-dark); padding: 12px 28px; height: 48px; border-radius: var(--radius-full); border: 1px solid var(--color-hairline-dark); }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 var(--space-lg); }
+.container-narrow { max-width: 680px; margin: 0 auto; padding: 0 var(--space-lg); }
+.band { padding: var(--space-section) 0; }
+.band-dark { background: var(--color-canvas-dark); color: var(--color-on-dark); }
+.band-light { background: var(--color-canvas-light); color: var(--color-ink); }
+.band-primary { background: var(--color-primary); color: var(--color-on-dark); }
+.primary-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--color-canvas-dark); height: 48px; display: flex; align-items: center; }
+.primary-nav .container { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.nav-logo { font-size: 16px; font-weight: 600; color: var(--color-on-dark); text-decoration: none; display: flex; align-items: center; gap: var(--space-xs); }
+.nav-logo .logo-icon { font-size: 20px; }
+.nav-links { display: flex; align-items: center; gap: var(--space-lg); list-style: none; }
+.nav-links a { color: var(--color-on-dark); text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 0.4px; transition: opacity 0.2s; opacity: 0.8; }
+.nav-links a:hover, .nav-links a.active { opacity: 1; }
+.nav-cta { background: var(--color-primary); color: #fff !important; padding: 6px 18px; border-radius: var(--radius-full); opacity: 1 !important; font-size: 14px; font-weight: 700; }
+.nav-cta:hover { background: var(--color-primary-pressed); }
+.mobile-toggle { display: none; background: none; border: none; color: var(--color-on-dark); font-size: 20px; cursor: pointer; }
+.page-header { padding: 96px 0 48px; text-align: center; }
+.page-header p { color: var(--color-body-dark); max-width: 520px; margin: var(--space-md) auto 0; }
+.legal-content { padding-bottom: var(--space-section); }
+.legal-content h2 { font-size: 22px; font-weight: 300; color: var(--color-on-dark); margin-top: var(--space-xxl); margin-bottom: var(--space-md); padding-bottom: var(--space-sm); border-bottom: 1px solid var(--color-hairline-dark); }
+.legal-content p, .legal-content li { color: var(--color-body-dark); font-size: 16px; line-height: 1.7; }
+.legal-content ol, .legal-content ul { padding-left: 20px; margin-bottom: var(--space-md); }
+.legal-content li { margin-bottom: var(--space-xs); }
+.accent-box { background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2); border-radius: var(--radius-md); padding: var(--space-xl); margin-top: var(--space-xl); }
+.accent-box h3 { color: var(--color-primary); font-size: 18px; font-weight: 600; margin-bottom: var(--space-sm); }
+.accent-box p, .accent-box li { color: var(--color-body-dark); font-size: 16px; line-height: 1.6; }
+.accent-box ul { padding-left: 20px; }
+.footer { background: var(--color-primary); color: var(--color-on-dark); padding: var(--space-xxl) 0; }
+.footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-lg); }
+.footer-links { display: flex; gap: var(--space-lg); flex-wrap: wrap; }
+.footer-links a { color: var(--color-on-dark); opacity: 0.8; text-decoration: none; font-size: 14px; }
+.footer-links a:hover { opacity: 1; }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.55); }
+@media (max-width: 768px) {
+  .display-md { font-size: 24px; }
+  .band { padding: 48px 0; }
+  .container, .container-narrow { padding: 0 var(--space-md); }
+  .nav-links { display: none; }
+  .mobile-toggle { display: block; }
+  .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 48px; left: 0; right: 0; background: var(--color-canvas-dark); padding: var(--space-lg); gap: var(--space-md); border-bottom: 1px solid var(--color-hairline-dark); }
+}
+</style>
+</head>
+<body>
+
+<nav class="primary-nav">
+  <div class="container">
+    <a href="/" class="nav-logo"><span class="logo-icon">🎮</span> Evo Game Store</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Beranda</a></li>
+      <li><a href="terms.html" class="active">S&K</a></li>
+      <li><a href="contact.html">Kontak</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="https://t.me/evogamestorebot" class="nav-cta" target="_blank">Buka Bot →</a></li>
+    </ul>
+    <button class="mobile-toggle" onclick="toggleNav()" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<section class="page-header band-dark">
+  <div class="container-narrow">
+    <h1 class="display-md">📋 Syarat & Ketentuan</h1>
+    <p>Terakhir diperbarui: Juni 2026</p>
+  </div>
+</section>
+
+<section class="legal-content band-dark">
+  <div class="container-narrow">
+
+    <p class="body-md" style="margin-bottom:var(--space-xl)">Dengan menggunakan layanan Evo Game Store ("kami"), Anda menyetujui syarat dan ketentuan berikut. Mohon baca dengan sebelum melakukan transaksi.</p>
+
+    <h2>1. Umum</h2>
+    <ol>
+      <li>Evo Game Store adalah platform jual beli produk digital berupa akun premium aplikasi dan voucher game.</li>
+      <li>Layanan kami diakses melalui bot Telegram <strong>@evogamestorebot</strong>.</li>
+      <li>Dengan melakukan pembelian, Anda menyatakan telah membaca, memahami, dan menyetujui seluruh syarat & ketentuan ini.</li>
+      <li>Kami berhak mengubah syarat & ketentuan ini sewaktu-waktu tanpa pemberitahuan terlebih dahulu.</li>
+    </ol>
+
+    <h2>2. Produk & Layanan</h2>
+    <ol>
+      <li>Produk yang kami jual meliputi: YouTube Premium, Canva Pro, CapCut Pro, ChatGPT Plus, Gemini Advanced, Grok AI Premium, Amazon Prime Video, Vidio Platinum, Viu Premium, Alight Motion Pro, GSuite Business, dan Custom Link Premium.</li>
+      <li>Harga produk dapat berubah sewaktu-waktu. Harga yang berlaku adalah harga tertera saat transaksi dilakukan.</li>
+      <li>Stok produk tergantung ketersediaan. Produk shared account memiliki stok terbatas dan berubah real-time.</li>
+      <li>Kami menjamin produk yang dijual adalah sah dan diperoleh secara legal.</li>
+    </ol>
+
+    <h2>3. Pendaftaran Akun</h2>
+    <ol>
+      <li>Pengguna wajib memiliki akun Telegram aktif untuk menggunakan layanan kami.</li>
+      <li>Pengguna bertanggung jawab menjaga keamanan akun Telegram-nya masing-masing.</li>
+      <li>Dengan menggunakan bot, pengguna otomatis terdaftar dengan ID Telegram sebagai identifikasi utama.</li>
+    </ol>
+
+    <h2>4. Pembayaran</h2>
+    <ol>
+      <li>Pembayaran melalui saldo bot atau <strong>QRIS</strong> (Quick Response Code Indonesian Standard) via payment gateway <strong>Tripay</strong>.</li>
+      <li>Pembayaran QRIS dapat dilakukan melalui DANA, OVO, GoPay, LinkAja, ShopeePay, Mobile Banking (BCA, BRI, BNI, Mandiri, BSI), dan semua e-wallet/bank yang mendukung QRIS.</li>
+      <li>Total pembayaran meliputi harga produk ditambah biaya layanan payment gateway yang tertera saat transaksi.</li>
+      <li>Nominal transaksi QRIS minimal <strong>Rp 1.000</strong> dan maksimal <strong>Rp 5.000.000</strong>.</li>
+      <li>Batas waktu pembayaran invoice QRIS minimal <strong>10 menit</strong> dan maksimal <strong>1.440 menit (24 jam)</strong>.</li>
+      <li>Kami tidak bertanggung jawab atas kerugian akibat kesalahan penginputan data oleh pengguna.</li>
+    </ol>
+
+    <h2>5. Proses Pengiriman</h2>
+    <ol>
+      <li>Produk digital akan <strong>dikirimkan secara otomatis</strong> setelah pembayaran dikonfirmasi.</li>
+      <li>Estimasi pengiriman produk otomatis (API/H2H): segera setelah pembayaran sukses.</li>
+      <li>Akun shared/manual dikirim dengan prioritas first-come-first-serve sesuai ketersediaan stok.</li>
+      <li>Pengguna wajib memasukkan data target (ID game, email, atau username) yang benar. <strong>Kami tidak bertanggung jawab atas kesalahan penginputan data target oleh pengguna</strong>.</li>
+      <li>Bukti pembelian dan data akses akun dikirimkan melalui chat bot Telegram.</li>
+    </ol>
+
+    <div class="accent-box">
+      <h3>⚠️ Kebijakan Garansi</h3>
+      <ul>
+        <li><strong>✅ Garansi berlaku</strong> jika akun/voucher tidak dapat digunakan atau berbeda dari yang dipesan <strong>dalam waktu 1×24 jam</strong> setelah pengiriman.</li>
+        <li><strong>❌ Garansi tidak berlaku</strong> jika: (a) akun mati/rusak karena penyalahgunaan pembeli, (b) perubahan password oleh pembeli, (c) pembeli share akun ke pihak lain, (d) melewati batas waktu klaim 24 jam.</li>
+        <li>Klaim garansi melalui menu Hubungi Admin di bot Telegram atau halaman kontak website ini.</li>
+      </ul>
+    </div>
+
+    <h2>6. Saldo Bot</h2>
+    <ol>
+      <li>Saldo bot hanya dapat digunakan untuk pembelian produk di Evo Game Store.</li>
+      <li>Saldo bot <strong>tidak dapat dicairkan</strong> (non-refundable) menjadi uang tunai.</li>
+      <li>Saldo bot <strong>tidak memiliki masa kedaluwarsa</strong>.</li>
+    </ol>
+
+    <h2>7. Larangan</h2>
+    <p>Pengguna dilarang:</p>
+    <ul>
+      <li>Memalsukan transaksi.</li>
+      <li>Menyalahgunakan layanan untuk tindakan ilegal.</li>
+      <li>Share/transfer akun premium yang dibeli ke pihak lain di luar tujuan awal pembelian.</li>
+      <li>Melakukan chargeback sepihak tanpa konfirmasi ke customer service.</li>
+    </ul>
+    <p>Pelanggaran mengakibatkan <strong>pemblokiran akun secara permanen</strong> tanpa refund.</p>
+
+    <h2>8. Batasan Tanggung Jawab</h2>
+    <ol>
+      <li>Kami berkomitmen memberikan layanan terbaik namun tidak menjamin layanan selalu tersedia tanpa gangguan teknis.</li>
+      <li>Kami tidak bertanggung jawab atas gangguan yang disebabkan pihak ketiga (server Telegram, payment gateway, penyedia API).</li>
+      <li>Kami tidak bertanggung jawab jika akun premium di-ban/suspend oleh pihak penyedia layanan setelah periode garansi berakhir.</li>
+      <li>Ganti rugi maksimal tidak melebihi nominal yang telah dibayarkan pengguna.</li>
+    </ol>
+
+    <h2>9. Penyelesaian Sengketa</h2>
+    <ol>
+      <li>Segala sengketa diselesaikan secara musyawarah terlebih dahulu.</li>
+      <li>Hal-hal yang belum diatur dalam S&K ini akan ditentukan berdasarkan kesepakatan bersama.</li>
+    </ol>
+
+    <h2>10. Kontak</h2>
+    <p>Jika memiliki pertanyaan mengenai Syarat & Ketentuan ini, hubungi:</p>
+    <ul>
+      <li>📱 Telegram: <a href="https://t.me/evogamestorebot" style="color:var(--color-link-dark)" target="_blank">@evogamestorebot</a></li>
+      <li>📧 Email: <a href="mailto:admin@evogamestore.com" style="color:var(--color-link-dark)">admin@evogamestore.com</a></li>
+      <li>💬 Halaman Kontak: <a href="contact.html" style="color:var(--color-link-dark)">Kontak CS</a></li>
+    </ul>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <a href="/" class="nav-logo" style="font-size:18px">🎮 Evo Game Store</a>
+    <div class="footer-links">
+      <a href="/">Beranda</a>
+      <a href="contact.html">Kontak CS</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+  </div>
+  <div class="container" style="margin-top:var(--space-lg)">
+    <span class="footer-copy">© 2026 Evo Game Store. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>function toggleNav(){document.getElementById('navLinks').classList.toggle('open')}</script>
+</body>
+</html>

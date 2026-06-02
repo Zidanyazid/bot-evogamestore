@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evo Game Store — Premium Digital Store</title>
+<meta name="description" content="Evo Game Store — Toko akun premium aplikasi & game. YouTube Premium, Canva Pro, CapCut, ChatGPT Plus, Gemini Advanced, dan lainnya. Proses otomatis 24/7.">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   PlayStation Design System — Evo Game Store
+   ═══════════════════════════════════════════ */
+
+:root {
+  /* Brand */
+  --color-primary: #6366f1;
+  --color-primary-pressed: #4f46e5;
+  --color-primary-active: #3730a3;
+  --color-commerce: #d53b00;
+  --color-commerce-pressed: #aa2f00;
+  --color-accent: #a855f7;
+
+  /* Surface */
+  --color-canvas-dark: #000000;
+  --color-surface-dark-elevated: #121314;
+  --color-surface-dark-card: #181818;
+  --color-canvas-light: #ffffff;
+  --color-surface-soft: #f3f3f3;
+  --color-surface-card: #f5f7fa;
+  --color-surface-filter: rgba(245,247,250,0.3);
+  --color-hairline-light: #f3f3f3;
+  --color-hairline-dark: rgba(229,229,229,0.2);
+
+  /* Text */
+  --color-ink: #000000;
+  --color-ink-deep: #121314;
+  --color-body-light: rgba(0,0,0,0.6);
+  --color-mute-light: #6b6b6b;
+  --color-ash-light: #cccccc;
+  --color-on-dark: #ffffff;
+  --color-body-dark: rgba(255,255,255,0.7);
+  --color-on-dark-mute: #cccccc;
+  --color-mute-dark: rgba(229,229,229,0.55);
+
+  /* Semantic */
+  --color-warning: #c81b3a;
+  --color-link-light: #4f46e5;
+  --color-link-dark: #818cf8;
+
+  /* Spacing */
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-xxl: 48px;
+  --space-section: 96px;
+
+  /* Radius */
+  --radius-none: 0px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-full: 9999px;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--color-canvas-dark);
+  color: var(--color-on-dark);
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── Typography ── */
+.display-xl { font-size: 54px; font-weight: 300; line-height: 1.25; letter-spacing: -0.1px; }
+.display-lg { font-size: 44px; font-weight: 300; line-height: 1.25; letter-spacing: 0.1px; }
+.display-md { font-size: 35px; font-weight: 300; line-height: 1.25; letter-spacing: 0; }
+.heading-xl { font-size: 28px; font-weight: 300; line-height: 1.25; letter-spacing: 0.1px; }
+.heading-lg { font-size: 22px; font-weight: 300; line-height: 1.25; letter-spacing: 0.1px; }
+.heading-md { font-size: 18px; font-weight: 600; line-height: 1; letter-spacing: 0; }
+.body-md { font-size: 18px; font-weight: 400; line-height: 1.5; letter-spacing: 0.1px; }
+.body-strong { font-size: 18px; font-weight: 500; line-height: 1.25; letter-spacing: 0.4px; }
+.body-sm { font-size: 16px; font-weight: 400; line-height: 1.5; }
+.caption-md { font-size: 14px; font-weight: 400; line-height: 1.5; }
+.caption-sm { font-size: 12px; font-weight: 500; line-height: 1.5; }
+.button-lg { font-size: 18px; font-weight: 700; line-height: 1.25; letter-spacing: 0.45px; }
+.button-md { font-size: 14px; font-weight: 700; line-height: 1.25; letter-spacing: 0.324px; }
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-xs);
+  text-decoration: none; border: none; cursor: pointer; transition: all 0.2s;
+  font-family: inherit; white-space: nowrap;
+}
+.btn-primary { background: var(--color-primary); color: var(--color-on-dark); padding: 12px 28px; height: 48px; border-radius: var(--radius-full); }
+.btn-primary:hover, .btn-primary:active { background: var(--color-primary-pressed); }
+.btn-commerce { background: var(--color-commerce); color: #fff; padding: 12px 28px; height: 48px; border-radius: var(--radius-full); }
+.btn-commerce:hover { background: var(--color-commerce-pressed); }
+.btn-secondary-dark { background: transparent; color: var(--color-on-dark); padding: 12px 28px; height: 48px; border-radius: var(--radius-full); border: 1px solid var(--color-hairline-dark); }
+.btn-secondary-dark:hover { background: rgba(255,255,255,0.08); }
+.btn-secondary-light { background: transparent; color: var(--color-ink); padding: 12px 28px; height: 48px; border-radius: var(--radius-full); border: 1px solid var(--color-ash-light); }
+.btn-secondary-light:hover { background: rgba(0,0,0,0.04); }
+.btn-lg { padding: 14px 36px; height: 52px; font-size: 18px; }
+.btn-md { padding: var(--space-sm) var(--space-lg); height: 40px; font-size: 14px; }
+
+/* ── Layout ── */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 var(--space-lg); }
+.container-narrow { max-width: 680px; margin: 0 auto; padding: 0 var(--space-lg); }
+
+/* ── Bands (full-bleed sections) ── */
+.band { padding: var(--space-section) 0; }
+.band-dark { background: var(--color-canvas-dark); color: var(--color-on-dark); }
+.band-light { background: var(--color-canvas-light); color: var(--color-ink); }
+.band-elevated { background: var(--color-surface-dark-elevated); color: var(--color-on-dark); }
+.band-gradient-dark { background: linear-gradient(180deg, var(--color-surface-dark-elevated) 0%, var(--color-canvas-dark) 100%); color: var(--color-on-dark); }
+.band-primary { background: var(--color-primary); color: var(--color-on-dark); }
+.band-card { background: var(--color-surface-card); }
+
+/* ── Navigation ── */
+.primary-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: var(--color-canvas-dark); height: 48px;
+  display: flex; align-items: center;
+}
+.primary-nav .container { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.nav-logo { font-size: 16px; font-weight: 600; color: var(--color-on-dark); text-decoration: none; display: flex; align-items: center; gap: var(--space-xs); }
+.nav-logo .logo-icon { font-size: 20px; }
+.nav-links { display: flex; align-items: center; gap: var(--space-lg); list-style: none; }
+.nav-links a {
+  color: var(--color-on-dark); text-decoration: none;
+  font-size: 14px; font-weight: 500; letter-spacing: 0.4px;
+  transition: opacity 0.2s; opacity: 0.8;
+}
+.nav-links a:hover, .nav-links a.active { opacity: 1; }
+.nav-cta { background: var(--color-primary); color: #fff !important; padding: 6px 18px; border-radius: var(--radius-full); opacity: 1 !important; font-size: 14px; font-weight: 700; }
+.nav-cta:hover { background: var(--color-primary-pressed); }
+.mobile-toggle { display: none; background: none; border: none; color: var(--color-on-dark); font-size: 20px; cursor: pointer; }
+
+/* ── Hero ── */
+.hero { min-height: 100vh; display: flex; align-items: center; position: relative; padding-top: 48px; overflow: hidden; }
+.hero-content { position: relative; z-index: 2; }
+.hero h1 { margin-bottom: var(--space-md); }
+.hero h1 .brand { font-weight: 700; background: linear-gradient(135deg, #6366f1, #a855f7, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero .sub { font-size: 18px; color: var(--color-body-dark); max-width: 520px; margin-bottom: var(--space-xl); font-weight: 400; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: var(--space-md); }
+.hero-visual { position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 50%; max-width: 600px; opacity: 0.15; font-size: 200px; text-align: center; user-select: none; pointer-events: none; }
+
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
+
+/* ── Cards ── */
+.card {
+  background: var(--color-surface-dark-card);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  transition: transform 0.2s, background 0.2s;
+}
+.card:hover { background: rgba(24,24,24,0.8); }
+.card-light {
+  background: var(--color-surface-card);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+}
+.card-light:hover { background: rgba(245,247,250,0.8); }
+
+/* ── Product Grid ── */
+.product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); }
+.product-tile {
+  background: var(--color-surface-dark-elevated);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.product-tile:active {
+  transform: scale(0.98);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.16);
+}
+.product-tile .cover {
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 36px;
+}
+.product-tile .info { padding: var(--space-md); }
+.product-tile .game-name { font-size: 12px; font-weight: 500; color: var(--color-primary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-xxs); }
+.product-tile .product-name { font-size: 16px; font-weight: 400; color: var(--color-on-dark); margin-bottom: var(--space-xs); }
+.product-tile .price { font-size: 16px; font-weight: 700; color: #34d399; }
+.product-tile .badge-new {
+  position: absolute; top: var(--space-sm); left: var(--space-sm);
+  background: var(--color-primary); color: #fff;
+  font-size: 10px; font-weight: 500; padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+.product-tile { position: relative; }
+
+/* ── Section Headers ── */
+.section-header { margin-bottom: var(--space-xxl); }
+.section-header.center { text-align: center; }
+.section-header .eyebrow {
+  font-size: 12px; font-weight: 500; color: var(--color-primary);
+  text-transform: uppercase; letter-spacing: 2px; margin-bottom: var(--space-sm); display: block;
+}
+.section-header .display-md { margin-bottom: var(--space-md); }
+.section-header .section-desc { color: var(--color-body-dark); max-width: 520px; }
+.section-header.center .section-desc { margin: 0 auto; }
+.band-light .section-header .section-desc { color: var(--color-body-light); }
+
+/* ── Features ── */
+.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); }
+.feature-card {
+  background: var(--color-surface-dark-card);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  border: 1px solid rgba(99,102,241,0.1);
+  transition: border-color 0.2s;
+}
+.feature-card:hover { border-color: rgba(99,102,241,0.3); }
+.feature-icon { font-size: 36px; margin-bottom: var(--space-md); display: block; }
+.feature-card h3 { font-size: 18px; font-weight: 600; color: var(--color-on-dark); margin-bottom: var(--space-xs); }
+.feature-card p { font-size: 14px; color: var(--color-body-dark); line-height: 1.5; }
+.band-light .feature-card { background: var(--color-surface-card); }
+.band-light .feature-card h3 { color: var(--color-ink); }
+.band-light .feature-card p { color: var(--color-body-light); }
+
+/* ── Steps ── */
+.steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-lg); }
+.step { text-align: center; position: relative; }
+.step-num {
+  width: 48px; height: 48px; background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 700; color: #fff; margin: 0 auto var(--space-md);
+}
+.step h3 { font-size: 16px; font-weight: 600; color: var(--color-on-dark); margin-bottom: var(--space-xs); }
+.step p { font-size: 14px; color: var(--color-body-dark); line-height: 1.5; }
+.band-light .step h3 { color: var(--color-ink); }
+.band-light .step p { color: var(--color-body-light); }
+
+/* ── Payment ── */
+.payment-row { display: flex; flex-wrap: wrap; gap: var(--space-md); justify-content: center; margin-bottom: var(--space-xl); }
+.payment-pill {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(99,102,241,0.2);
+  border-radius: var(--radius-full); padding: var(--space-sm) var(--space-lg);
+  font-size: 14px; font-weight: 500; color: var(--color-on-dark-mute);
+}
+
+/* ── FAQ Accordion ── */
+.faq-item {
+  border-bottom: 1px solid var(--color-hairline-dark);
+}
+.band-light .faq-item { border-bottom-color: var(--color-hairline-light); }
+.faq-item summary {
+  padding: var(--space-lg) 0; cursor: pointer; list-style: none;
+  font-size: 18px; font-weight: 500; color: var(--color-on-dark);
+  display: flex; justify-content: space-between; align-items: center;
+  transition: opacity 0.2s;
+}
+.faq-item summary:hover { opacity: 0.8; }
+.band-light .faq-item summary { color: var(--color-ink); }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: '+'; font-size: 20px; color: var(--color-primary); font-weight: 300; margin-left: var(--space-md); flex-shrink: 0; }
+.faq-item[open] summary::after { content: '−'; }
+.faq-item .answer {
+  padding-bottom: var(--space-lg);
+  font-size: 16px; color: var(--color-body-dark); line-height: 1.7;
+  max-width: 720px;
+}
+.band-light .faq-item .answer { color: var(--color-body-light); }
+.faq-item .answer a { color: var(--color-link-dark); text-decoration: none; }
+.faq-item .answer a:hover { text-decoration: underline; }
+.band-light .faq-item .answer a { color: var(--color-link-light); }
+
+/* ── Contact Cards ── */
+.contact-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); }
+.contact-card {
+  background: var(--color-surface-dark-card); border-radius: var(--radius-md);
+  padding: var(--space-xl); text-align: center;
+  border: 1px solid rgba(99,102,241,0.1);
+}
+.contact-card .icon { font-size: 40px; margin-bottom: var(--space-md); }
+.contact-card h3 { font-size: 18px; font-weight: 600; color: var(--color-on-dark); margin-bottom: var(--space-xs); }
+.contact-card p { font-size: 14px; color: var(--color-body-dark); margin-bottom: var(--space-md); line-height: 1.5; }
+.contact-card .btn { margin-top: var(--space-xs); }
+
+/* ── Accent Box ── */
+.accent-box {
+  background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2);
+  border-radius: var(--radius-md); padding: var(--space-xl); margin-top: var(--space-xl);
+}
+.accent-box h3 { color: var(--color-primary); font-size: 18px; font-weight: 600; margin-bottom: var(--space-sm); }
+.accent-box p { color: var(--color-body-dark); font-size: 16px; line-height: 1.6; }
+
+/* ── Footer ── */
+.footer { background: var(--color-primary); color: var(--color-on-dark); padding: var(--space-xxl) 0; }
+.footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-lg); }
+.footer-links { display: flex; gap: var(--space-lg); flex-wrap: wrap; }
+.footer-links a { color: var(--color-on-dark); opacity: 0.8; text-decoration: none; font-size: 14px; }
+.footer-links a:hover { opacity: 1; }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.55); letter-spacing: 0; }
+
+/* ── Page Header ── */
+.page-header { padding: 96px 0 48px; text-align: center; }
+.page-header p { color: var(--color-body-dark); max-width: 520px; margin: var(--space-md) auto 0; }
+
+/* ── Legal Content ── */
+.legal-content { padding-bottom: var(--space-section); }
+.legal-content h2 {
+  font-size: 22px; font-weight: 300; color: var(--color-on-dark);
+  margin-top: var(--space-xxl); margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-hairline-dark);
+}
+.band-light .legal-content h2 { border-bottom-color: var(--color-hairline-light); }
+.legal-content p, .legal-content li { color: var(--color-body-dark); font-size: 16px; line-height: 1.7; }
+.band-light .legal-content p, .band-light .legal-content li { color: var(--color-body-light); }
+.legal-content ol, .legal-content ul { padding-left: 20px; margin-bottom: var(--space-md); }
+.legal-content li { margin-bottom: var(--space-xs); }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .product-grid { grid-template-columns: repeat(3, 1fr); }
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .steps { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .display-xl { font-size: 32px; }
+  .display-lg { font-size: 28px; }
+  .display-md { font-size: 24px; }
+  .heading-xl { font-size: 22px; }
+  .heading-lg { font-size: 18px; }
+  .band { padding: 48px 0; }
+  .container { padding: 0 var(--space-md); }
+  .product-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-md); }
+  .features-grid { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: repeat(2, 1fr); }
+  .contact-cards { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn { width: 100%; text-align: center; }
+  .nav-links { display: none; }
+  .mobile-toggle { display: block; }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: fixed;
+    top: 48px; left: 0; right: 0; background: var(--color-canvas-dark);
+    padding: var(--space-lg); gap: var(--space-md);
+    border-bottom: 1px solid var(--color-hairline-dark);
+  }
+}
+
+@media (max-width: 480px) {
+  .display-xl { font-size: 28px; }
+  .display-lg { font-size: 24px; }
+  .product-grid { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
+  .payment-row { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- Primary Nav -->
+<nav class="primary-nav">
+  <div class="container">
+    <a href="/" class="nav-logo"><span class="logo-icon">🎮</span> Evo Game Store</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/" class="active">Beranda</a></li>
+      <li><a href="terms.html">S&K</a></li>
+      <li><a href="contact.html">Kontak</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="https://t.me/evogamestorebot" class="nav-cta" target="_blank">Buka Bot →</a></li>
+    </ul>
+    <button class="mobile-toggle" onclick="toggleNav()" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero band-dark">
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="display-xl">Akun Premium<br><span class="brand">Harga Bersahabat.</span></h1>
+      <p class="sub">YouTube Premium, Canva Pro, CapCut, ChatGPT Plus, Gemini Advanced, dan lainnya. Proses otomatis 24/7 via Telegram.</p>
+      <div class="hero-actions">
+        <a href="https://t.me/evogamestorebot" class="btn button-lg btn-commerce" target="_blank">🛒 Beli Sekarang</a>
+        <a href="#produk" class="btn button-lg btn-secondary-dark">Lihat Produk</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">🎮</div>
+</section>
+
+<!-- ═══════ FEATURES ═══════ -->
+<section class="band band-elevated">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Keunggulan</span>
+      <h2 class="display-md">Kenapa Evo Game Store?</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-icon">⚡</span>
+        <h3>Otomatis 24/7</h3>
+        <p>Proses instan tanpa menunggu admin. Beli kapan saja, produk dikirim langsung.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🔒</span>
+        <h3>Pembayaran Aman</h3>
+        <p>Gateway terverifikasi (Tripay). QRIS, e-wallet, mobile banking — semua bisa.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">💰</span>
+        <h3>Harga Terjangkau</h3>
+        <p>Mulai dari Rp 3.000. Harga kompetitif untuk semua produk digital premium.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🔄</span>
+        <h3>Garansi & Refund</h3>
+        <p>Produk tidak sesuai? Klaim garansi dalam 24 jam setelah pengiriman.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📱</span>
+        <h3>Mudah</h3>
+        <p>Cukup via Telegram. Tidak perlu install aplikasi tambahan apapun.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">💬</span>
+        <h3>CS Responsif</h3>
+        <p>Tim support siap membantu via Telegram untuk kendala apapun.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PRODUCTS ═══════ -->
+<section class="band band-dark" id="produk">
+  <div class="container">
+    <div class="section-header center">
+      <span class="eyebrow">Katalog</span>
+      <h2 class="display-md">Premium Apps yang Kami Jual</h2>
+      <p class="section-desc">Akun shared/original untuk berbagai layanan digital populer. Stok berubah real-time.</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-tile">
+        <div class="cover"><span class="badge-new">POPULER</span>🔴</div>
+        <div class="info">
+          <div class="game-name">YouTube Premium</div>
+          <div class="product-name">YouTube Premium 1 Bulan</div>
+          <div class="price">Rp 9.000<span style="font-size:12px;color:var(--color-mute-dark);font-weight:400"> /bln</span></div>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="cover" style="background:linear-gradient(135deg,#00c4cc,#7d2ae8)">🎨</div>
+        <div class="info">
+          <div class="game-name">Canva Pro</div>
+          <div class="product-name">Canva Pro 1 Bulan</div>
+          <div class="price">Rp 5.000<span style="font-size:12px;color:var(--color-mute-dark);font-weight:400"> /bln</span></div>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="cover" style="background:linear-gradient(135deg,#1a1a2e,#e94057)">📹</div>
+        <div class="info">
+          <div class="game-name">CapCut Pro</div>
+          <div class="product-name">CapCut Pro 1 Bulan</div>
+          <div class="price">Rp 12.000<span style="font-size:12px;color:var(--color-mute-dark);font-weight:400"> /bln</span></div>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="cover" style="background:linear-gradient(135deg,#10342f,#1a7340)">🤖</div>
+        <div class="info">
+          <div class="game-name">ChatGPT Plus</div>
+          <div class="product-name">ChatGPT Plus 1 Bulan</div>
+          <div class="price">Rp 35.000<span style="font-size:12px;color:var(--color-mute-dark);font-weight:400"> /bln</span></div>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="cover" style="background:linear-gradient(135deg,#4285f4,#ea4335)">☄️</div>
+        <div class="info">
+          <div class="game-name">Gemini Advanced</div>
+          <div class="product-name">Gemini Advanced 1 Bulan</div>
+          <div class="price">Rp 40.000<span style="font-size:12px;color:var(--color-mute-dark);font-weight:400"> /bln</span></div>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="cover" style="background:linear-gradient(135deg,#000,#434343)">🧠</div>
+        <div class="info">
+          <div class="game-name">Grok AI</div>
+          <div class="product-name">Grok AI Premium 1 Bulan</div>
+          <div class="price">Rp 38.000<span style="font-size:12px;color:var(--color-mute-dark);font-weight:400"> /bln</span></div>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="cover" style="background:linear-gradient(135deg,#00a8e1,#002d57)">🍿</div>
+        <div class="info">
+          <div class="game-name">Prime Video</div>
+          <div class="product-name">Amazon Prime Video 1 Bulan</div>
+          <div class="price">Rp 8.000<span style="font-size:12px;color:var(--color-mute-dark);font-weight:400"> /bln</span></div>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="cover" style="background:linear-gradient(135deg,#e60012,#221f1f)">📺</div>
+        <div class="info">
+          <div class="game-name">Vidio Platinum</div>
+          <div class="product-name">Vidio Platinum 1 Bulan</div>
+          <div class="price">Rp 25.000<span style="font-size:12px;color:var(--color-mute-dark);font-weight:400"> /bln</span></div>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="cover" style="background:linear-gradient(135deg,#f5b724,#282626)">🎬</div>
+        <div class="info">
+          <div class="game-name">Viu Premium</div>
+          <div class="product-name">Viu Premium 1 Bulan</div>
+          <div class="price">Rp 7.000<span style="font-size:12px;color:var(--color-mute-dark);font-weight:400"> /bln</span></div>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="cover" style="background:linear-gradient(135deg,#ff6b00,#1a1a1a)">🎬</div>
+        <div class="info">
+          <div class="game-name">Alight Motion</div>
+          <div class="product-name">Alight Motion Pro 1 Bulan</div>
+          <div class="price">Rp 15.000<span style="font-size:12px;color:var(--color-mute-dark);font-weight:400"> /bln</span></div>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="cover" style="background:linear-gradient(135deg,#4285f4,#34a853)">💼</div>
+        <div class="info">
+          <div class="game-name">GSuite Business</div>
+          <div class="product-name">GSuite Business 1 Bulan</div>
+          <div class="price">Rp 50.000<span style="font-size:12px;color:var(--color-mute-dark);font-weight:400"> /bln</span></div>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="cover" style="background:linear-gradient(135deg,#6366f1,#a855f7)">🔗</div>
+        <div class="info">
+          <div class="game-name">YouTube Premium</div>
+          <div class="product-name">YouTube Premium 3 Bulan</div>
+          <div class="price">Rp 24.000<span style="font-size:12px;color:var(--color-mute-dark);font-weight:400"> /3bln</span></div>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="cover" style="background:linear-gradient(135deg,#00c4cc,#7d2ae8)">🎨</div>
+        <div class="info">
+          <div class="game-name">Canva Pro</div>
+          <div class="product-name">Canva Pro 1 Tahun</div>
+          <div class="price">Rp 25.000<span style="font-size:12px;color:var(--color-mute-dark);font-weight:400"> /thn</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ HOW IT WORKS ═══════ -->
+<section class="band band-light">
+  <div class="container">
+    <div class="section-header center">
+      <span class="eyebrow" style="color:var(--color-primary)">Cara Beli</span>
+      <h2 class="display-md" style="color:var(--color-ink)">5 Langkah Mudah</h2>
+      <p class="section-desc" style="color:var(--color-body-light)">Dari pilih produk sampai terima akun — semua via Telegram.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Buka Bot</h3>
+        <p>Buka @evogamestorebot di Telegram Anda.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Pilih Produk</h3>
+        <p>Jelajahi katalog dan pilih produk yang diinginkan.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Input Data</h3>
+        <p>Masukkan ID/Email tujuan pengiriman produk.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Bayar</h3>
+        <p>QRIS atau Saldo Bot — pilih yang paling mudah.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <h3>Terima Produk</h3>
+        <p>Produk otomatis dikirim setelah pembayaran sukses.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PAYMENT ═══════ -->
+<section class="band band-gradient-dark">
+  <div class="container">
+    <div class="section-header center">
+      <span class="eyebrow">Pembayaran</span>
+      <h2 class="display-md">Bayar Sesuai Kemudahan Anda</h2>
+    </div>
+    <div class="payment-row">
+      <span class="payment-pill">💳 QRIS (Semua E-Wallet & Mobile Banking)</span>
+      <span class="payment-pill">💰 Saldo Bot</span>
+      <span class="payment-pill">📱 DANA / OVO / GoPay / LinkAja</span>
+    </div>
+    <p style="text-align:center;color:var(--color-body-dark);font-size:14px;max-width:520px;margin:0 auto;">
+      Proses pembayaran melalui <strong style="color:var(--color-on-dark)">Tripay</strong> — payment gateway terverifikasi. Fee QRIS: <strong style="color:#34d399">Rp 750 + 0.7%</strong>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════ CTA BAND ═══════ -->
+<section class="band band-primary">
+  <div class="container" style="text-align:center">
+    <h2 class="display-md" style="margin-bottom:var(--space-md)">Siap Berbelanja?</h2>
+    <p class="body-md" style="opacity:0.8;margin-bottom:var(--space-xl);max-width:480px;margin-left:auto;margin-right:auto">
+      Buka bot Telegram kami dan mulai jelajahi ratusan produk digital premium dengan harga terjangkau.
+    </p>
+    <a href="https://t.me/evogamestorebot" class="btn button-lg" style="background:#fff;color:var(--color-primary)" target="_blank">
+      🚀 Buka @evogamestorebot
+    </a>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+  <div class="container">
+    <a href="/" class="nav-logo" style="font-size:18px">🎮 Evo Game Store</a>
+    <div class="footer-links">
+      <a href="terms.html">Syarat & Ketentuan</a>
+      <a href="contact.html">Kontak CS</a>
+      <a href="faq.html">FAQ</a>
+      <a href="https://t.me/evogamestorebot" target="_blank">Telegram Bot</a>
+    </div>
+  </div>
+  <div class="container" style="margin-top:var(--space-lg)">
+    <span class="footer-copy">© 2026 Evo Game Store. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+function toggleNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+</script>
+</body>
+</html>
