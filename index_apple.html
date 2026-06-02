@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evo Game Store — Premium Digital Store</title>
+<meta name="description" content="Toko akun premium aplikasi & game. YouTube Premium, Canva Pro, CapCut, ChatGPT Plus, Gemini Advanced. Proses otomatis 24/7 via Telegram.">
+<meta name="theme-color" content="#1d1d1f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#1d1d1f;font-size:17px;line-height:1.47;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:#0066cc;text-decoration:none}
+a:hover{text-decoration:underline}
+::selection{background:#0066cc;color:#fff}
+
+/* ── Typography ── */
+.hero-display{font-size:56px;font-weight:600;line-height:1.07;letter-spacing:-.28px}
+.display-lg{font-size:40px;font-weight:600;line-height:1.1;letter-spacing:0}
+.display-md{font-size:34px;font-weight:600;line-height:1.47;letter-spacing:-.374px}
+.lead{font-size:28px;font-weight:400;line-height:1.14;letter-spacing:.196px}
+.tagline{font-size:21px;font-weight:600;line-height:1.19;letter-spacing:.231px}
+.body-strong{font-size:17px;font-weight:600;line-height:1.24;letter-spacing:-.374px}
+.body{font-size:17px;font-weight:400;line-height:1.47;letter-spacing:-.374px}
+.caption{font-size:14px;font-weight:400;line-height:1.43;letter-spacing:-.224px}
+.caption-strong{font-size:14px;font-weight:600;line-height:1.29;letter-spacing:-.224px}
+.fine-print{font-size:12px;font-weight:400;line-height:1;letter-spacing:-.12px}
+.nav-link{font-size:12px;font-weight:400;line-height:1;letter-spacing:-.12px}
+
+/* ── Buttons ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;border:none;cursor:pointer;transition:transform .15s;font-family:inherit;white-space:nowrap;border-radius:9999px;font-size:17px;font-weight:400;padding:11px 22px}
+.btn:active{transform:scale(.95)}
+.btn-primary{background:#0066cc;color:#fff}
+.btn-primary:hover{background:#0066cc;text-decoration:none;color:#fff}
+.btn-secondary{background:transparent;color:#0066cc;border:1px solid #0066cc;padding:10px 22px;font-size:17px;font-weight:400}
+.btn-secondary:hover{text-decoration:none;background:rgba(0,102,204,.04)}
+.btn-dark-utility{background:#1d1d1f;color:#fff;font-size:14px;padding:8px 15px;border-radius:8px;font-weight:400}
+.btn-dark-utility:hover{text-decoration:none}
+
+/* ── Global Nav ── */
+.global-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#000;height:44px;display:flex;align-items:center}
+.global-nav .inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:980px;margin:0 auto;padding:0 22px}
+.nav-logo{color:#fff;text-decoration:none;font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px}
+.nav-logo:hover{text-decoration:none;color:#fff}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:12px;letter-spacing:-.12px;transition:color .15s}
+.nav-links a:hover,.nav-links a.active{color:#fff;text-decoration:none}
+.nav-cta{background:#0066cc;color:#fff;padding:4px 14px;border-radius:9999px;font-size:12px}
+.nav-cta:hover{background:#0071e3;text-decoration:none;color:#fff}
+.mobile-toggle{display:none;background:none;border:none;color:#fff;font-size:18px;cursor:pointer;padding:4px}
+
+/* ── Tiles ── */
+.tile{padding:80px 0}
+.tile-dark{background:#272729;color:#fff}
+.tile-parchment{background:#f5f5f7;color:#1d1d1f}
+.tile-white{background:#fff;color:#1d1d1f}
+.tile-black{background:#000;color:#fff}
+
+.container{max-width:980px;margin:0 auto;padding:0 22px}
+.container-wide{max-width:1440px;margin:0 auto;padding:0 22px}
+
+/* ── Hero ── */
+.hero{text-align:center}
+.hero .brand{background:linear-gradient(135deg,#0066cc,#2997ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .lead{color:rgba(255,255,255,.7);margin:16px auto 32px;max-width:520px}
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* ── Feature Cards ── */
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.feature-card{background:#fff;border-radius:18px;padding:32px 24px;text-align:left}
+.feature-card .icon{font-size:32px;margin-bottom:16px;display:block}
+.feature-card h3{font-size:17px;font-weight:600;color:#1d1d1f;margin-bottom:8px;letter-spacing:-.374px}
+.feature-card p{font-size:14px;color:#1d1d1f;font-weight:400;line-height:1.43;letter-spacing:-.224px}
+
+/* ── Product Grid ── */
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.product-tile{background:#2a2a2c;border-radius:8px;overflow:hidden;transition:transform .15s}
+.product-tile:active{transform:scale(.97)}
+.product-tile .cover{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;font-size:36px;position:relative}
+.product-tile .badge{position:absolute;top:8px;left:8px;background:#0066cc;color:#fff;font-size:10px;font-weight:600;padding:4px 10px;border-radius:9999px;letter-spacing:.5px}
+.product-tile .info{padding:16px}
+.product-tile .game-name{font-size:12px;font-weight:600;color:#0066cc;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.product-tile .product-name{font-size:14px;font-weight:400;color:#fff;margin-bottom:8px;line-height:1.43}
+.product-tile .price{font-size:14px;font-weight:600;color:#34d399}
+
+/* ── Steps ── */
+.steps{display:flex;justify-content:center;gap:32px}
+.step{text-align:center;max-width:160px}
+.step-num{width:40px;height:40px;background:#0066cc;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:600;color:#fff;margin:0 auto 16px}
+.step h3{font-size:14px;font-weight:600;color:#1d1d1f;margin-bottom:6px;letter-spacing:-.224px}
+.step p{font-size:12px;color:#1d1d1f;line-height:1.43;letter-spacing:-.224px;font-weight:400}
+
+/* ── Payment ── */
+.payment-pills{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:24px}
+.payment-pill{background:#fff;border-radius:9999px;padding:8px 20px;font-size:14px;font-weight:400;color:#333;letter-spacing:-.224px}
+.payment-note{text-align:center;font-size:14px;color:#7a7a7a;max-width:480px;margin:0 auto;letter-spacing:-.224px}
+
+/* ── CTA ── */
+.cta-section{text-align:center}
+.cta-section .display-lg{margin-bottom:12px}
+.cta-section .lead{color:rgba(255,255,255,.7);margin-bottom:32px}
+.cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* ── Footer ── */
+.footer{background:#f5f5f7;padding:64px 0 32px;color:#333}
+.footer-links{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-bottom:48px}
+.footer-col h4{font-size:12px;font-weight:600;color:#333;margin-bottom:12px}
+.footer-col a{display:block;font-size:12px;color:#333;text-decoration:none;padding:4px 0;line-height:2.41}
+.footer-col a:hover{color:#0066cc}
+.footer-legal{border-top:1px solid #e0e0e0;padding-top:16px;font-size:12px;color:#7a7a7a}
+
+/* ── Responsive ── */
+@media(max-width:834px){
+  .global-nav .inner{padding:0 16px}
+  .nav-links{display:none}
+  .mobile-toggle{display:block}
+  .nav-links.open{display:flex;flex-direction:column;position:fixed;top:44px;left:0;right:0;background:#000;padding:16px 22px;gap:16px;border-bottom:1px solid rgba(255,255,255,.1);z-index:99}
+  .tile{padding:48px 0}
+  .hero-display{font-size:34px}
+  .display-lg{font-size:28px}
+  .display-md{font-size:24px}
+  .lead{font-size:21px}
+  .container,.container-wide,.container-narrow{padding:0 16px}
+  .feature-grid{grid-template-columns:repeat(2,1fr)}
+  .product-grid{grid-template-columns:repeat(3,1fr)}
+  .steps{flex-wrap:wrap;gap:24px}
+  .step{max-width:140px}
+  .footer-links{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  .hero-display{font-size:28px}
+  .display-lg{font-size:24px}
+  .feature-grid{grid-template-columns:1fr}
+  .product-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .step{max-width:none}
+}
+@media(max-width:420px){
+  .product-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .hero-actions{flex-direction:column;align-items:center}
+  .footer-links{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ GLOBAL NAV ═══ -->
+<nav class="global-nav">
+  <div class="inner">
+    <a href="index_apple.html" class="nav-logo">🎮 Evo Game Store</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#produk">Produk</a></li>
+      <li><a href="contact_apple.html">Kontak</a></li>
+      <li><a href="faq_apple.html">FAQ</a></li>
+      <li><a href="https://t.me/evogamestorebot" class="nav-cta" target="_blank">Beli Sekarang</a></li>
+    </ul>
+    <button class="mobile-toggle" onclick="toggleNav()" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="tile tile-dark hero">
+  <div class="container">
+    <h1 class="display-lg">Akun Premium</h1>
+    <h2 class="display-md" style="color:rgba(255,255,255,.55);font-weight:600">Harga Bersahabat.</h2>
+    <p class="lead">YouTube Premium, Canva Pro, CapCut, ChatGPT Plus, Gemini Advanced, dan lainnya. Proses otomatis 24/7 via Telegram.</p>
+    <div class="hero-actions">
+      <a href="https://t.me/evogamestorebot" class="btn btn-primary" target="_blank">Beli Sekarang</a>
+      <a href="#produk" class="btn btn-secondary" style="color:#2997ff;border-color:rgba(41,151,255,.4)">Lihat Produk</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FEATURES ═══ -->
+<section class="tile tile-parchment">
+  <div class="container" style="text-align:center">
+    <h2 class="display-lg" style="margin-bottom:12px">Kenapa Evo Game Store?</h2>
+    <p class="lead" style="color:#7a7a7a;margin:0 auto 48px;font-size:21px;font-weight:400">Kami yang terbaik untuk akun premium kamu.</p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <span class="icon">⚡</span>
+        <h3>Otomatis 24/7</h3>
+        <p>Proses instan tanpa menunggu admin. Beli kapan saja, produk dikirim langsung.</p>
+      </div>
+      <div class="feature-card">
+        <span class="icon">🔒</span>
+        <h3>Pembayaran Aman</h3>
+        <p>Gateway terverifikasi (Tripay). QRIS, e-wallet, mobile banking — semua bisa.</p>
+      </div>
+      <div class="feature-card">
+        <span class="icon">💰</span>
+        <h3>Harga Terjangkau</h3>
+        <p>Mulai dari Rp 3.000. Harga kompetitif untuk semua produk digital premium.</p>
+      </div>
+      <div class="feature-card">
+        <span class="icon">🔄</span>
+        <h3>Garansi & Refund</h3>
+        <p>Produk tidak sesuai? Klaim garansi dalam 24 jam setelah pengiriman.</p>
+      </div>
+      <div class="feature-card">
+        <span class="icon">📱</span>
+        <h3>Mudah</h3>
+        <p>Cukup via Telegram. Tidak perlu install aplikasi tambahan apapun.</p>
+      </div>
+      <div class="feature-card">
+        <span class="icon">💬</span>
+        <h3>CS Responsif</h3>
+        <p>Tim support siap membantu via Telegram untuk kendala apapun.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRODUCTS ═══ -->
+<section class="tile tile-dark" id="produk">
+  <div class="container-wide" style="text-align:center">
+    <h2 class="display-lg" style="margin-bottom:12px">Premium Apps</h2>
+    <p class="lead" style="color:rgba(255,255,255,.55);margin:0 auto 48px;font-size:21px;font-weight:400">Akun shared untuk layanan digital populer.</p>
+    <div class="product-grid">
+      <div class="product-tile">
+        <div class="cover" style="background:linear-gradient(135deg,#ff0000,#cc0000)"><span class="badge">POPULER</span>🔴</div>
+        <div class="info"><div class="game-name">YouTube Premium</div><div class="product-name">1 Bulan</div><div class="price">Rp 9.000</div></div>
+      </div>
+      <div class="product-tile">
+        <div class="cover" style="background:linear-gradient(135deg,#00c4cc,#7d2ae8)">🎨</div>
+        <div class="info"><div class="game-name">Canva Pro</div><div class="product-name">1 Bulan</div><div class="price">Rp 5.000</div></div>
+      </div>
+      <div class="product-tile">
+        <div class="cover" style="background:linear-gradient(135deg,#1a1a2e,#e94057)">📹</div>
+        <div class="info"><div class="game-name">CapCut Pro</div><div class="product-name">1 Bulan</div><div class="price">Rp 12.000</div></div>
+      </div>
+      <div class="product-tile">
+        <div class="cover" style="background:linear-gradient(135deg,#10342f,#1a7340)">🤖</div>
+        <div class="info"><div class="game-name">ChatGPT Plus</div><div class="product-name">1 Bulan</div><div class="price">Rp 35.000</div></div>
+      </div>
+      <div class="product-tile">
+        <div class="cover" style="background:linear-gradient(135deg,#4285f4,#ea4335)">☄️</div>
+        <div class="info"><div class="game-name">Gemini Advanced</div><div class="product-name">1 Bulan</div><div class="price">Rp 40.000</div></div>
+      </div>
+      <div class="product-tile">
+        <div class="cover" style="background:linear-gradient(135deg,#000,#434343)">🧠</div>
+        <div class="info"><div class="game-name">Grok AI</div><div class="product-name">1 Bulan</div><div class="price">Rp 38.000</div></div>
+      </div>
+      <div class="product-tile">
+        <div class="cover" style="background:linear-gradient(135deg,#00a8e1,#002d57)">🍿</div>
+        <div class="info"><div class="game-name">Prime Video</div><div class="product-name">1 Bulan</div><div class="price">Rp 8.000</div></div>
+      </div>
+      <div class="product-tile">
+        <div class="cover" style="background:linear-gradient(135deg,#e60012,#221f1f)">📺</div>
+        <div class="info"><div class="game-name">Vidio Platinum</div><div class="product-name">1 Bulan</div><div class="price">Rp 25.000</div></div>
+      </div>
+      <div class="product-tile">
+        <div class="cover" style="background:linear-gradient(135deg,#f5b724,#282626)">🎬</div>
+        <div class="info"><div class="game-name">Viu Premium</div><div class="product-name">1 Bulan</div><div class="price">Rp 7.000</div></div>
+      </div>
+      <div class="product-tile">
+        <div class="cover" style="background:linear-gradient(135deg,#ff6b00,#1a1a1a)">🎬</div>
+        <div class="info"><div class="game-name">Alight Motion</div><div class="product-name">1 Bulan</div><div class="price">Rp 15.000</div></div>
+      </div>
+      <div class="product-tile">
+        <div class="cover" style="background:linear-gradient(135deg,#4285f4,#34a853)">💼</div>
+        <div class="info"><div class="game-name">GSuite Business</div><div class="product-name">1 Bulan</div><div class="price">Rp 50.000</div></div>
+      </div>
+      <div class="product-tile">
+        <div class="cover" style="background:linear-gradient(135deg,#6366f1,#2997ff)">🔗</div>
+        <div class="info"><div class="game-name">YouTube Premium</div><div class="product-name">3 Bulan</div><div class="price">Rp 24.000</div></div>
+      </div>
+      <div class="product-tile">
+        <div class="cover" style="background:linear-gradient(135deg,#00c4cc,#7d2ae8)">🎨</div>
+        <div class="info"><div class="game-name">Canva Pro</div><div class="product-name">1 Tahun</div><div class="price">Rp 25.000</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section class="tile tile-white">
+  <div class="container" style="text-align:center">
+    <h2 class="display-lg" style="margin-bottom:48px">5 Langkah Mudah</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><h3>Buka Bot</h3><p>Buka @evogamestorebot di Telegram Anda.</p></div>
+      <div class="step"><div class="step-num">2</div><h3>Pilih Produk</h3><p>Jelajahi katalog dan pilih produk.</p></div>
+      <div class="step"><div class="step-num">3</div><h3>Input Data</h3><p>Masukkan ID/Email tujuan pengiriman.</p></div>
+      <div class="step"><div class="step-num">4</div><h3>Bayar</h3><p>QRIS atau Saldo Bot — pilih yang mudah.</p></div>
+      <div class="step"><div class="step-num">5</div><h3>Terima Produk</h3><p>Produk otomatis dikirim setelah bayar.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PAYMENT ═══ -->
+<section class="tile tile-parchment">
+  <div class="container" style="text-align:center">
+    <h2 class="display-lg" style="margin-bottom:32px">Bayar Sesuai Kemudahan</h2>
+    <div class="payment-pills">
+      <span class="payment-pill">💳 QRIS</span>
+      <span class="payment-pill">💰 Saldo Bot</span>
+      <span class="payment-pill">📱 DANA / OVO / GoPay</span>
+      <span class="payment-pill">🏦 Mobile Banking</span>
+    </div>
+    <p class="payment-note">Proses pembayaran melalui <strong style="color:#1d1d1f">Tripay</strong> — payment gateway terverifikasi. Fee QRIS: <strong style="color:#1d1d1f">Rp 750 + 0.7%</strong>. Min transaksi Rp 1.000.</p>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="tile tile-dark cta-section">
+  <div class="container">
+    <h2 class="display-lg">Siap Berbelanja?</h2>
+    <p class="lead">Buka bot Telegram kami dan mulai jelajahi ratusan produk digital premium.</p>
+    <div class="cta-buttons">
+      <a href="https://t.me/evogamestorebot" class="btn btn-primary" target="_blank">Buka @evogamestorebot</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Belanja</h4>
+        <a href="https://t.me/evogamestorebot" target="_blank">Telegram Bot</a>
+        <a href="#produk">Katalog Produk</a>
+        <a href="faq_apple.html">Cara Berbelanja</a>
+      </div>
+      <div class="footer-col">
+        <h4>Pembayaran</h4>
+        <a href="faq_apple.html">QRIS</a>
+        <a href="faq_apple.html">Saldo Bot</a>
+        <a href="terms_apple.html">Kebijakan Refund</a>
+      </div>
+      <div class="footer-col">
+        <h4>Bantuan</h4>
+        <a href="faq_apple.html">FAQ</a>
+        <a href="contact_apple.html">Hubungi CS</a>
+        <a href="terms_apple.html">Garansi</a>
+      </div>
+      <div class="footer-col">
+        <h4>Tentang</h4>
+        <a href="terms_apple.html">Syarat & Ketentuan</a>
+        <a href="contact_apple.html">Kontak</a>
+        <a href="https://t.me/zidanbocil88" target="_blank">Admin</a>
+      </div>
+    </div>
+    <div class="footer-legal">© 2026 Evo Game Store. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>function toggleNav(){document.getElementById('navLinks').classList.toggle('open')}</script>
+</body>
+</html>
