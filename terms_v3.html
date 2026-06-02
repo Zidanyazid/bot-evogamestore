@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syarat & Ketentuan — Evo Game Store</title>
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter','SF Pro Text',system-ui,-apple-system,BlinkMacSystemFont,sans-serif;background:#ffffff;color:#1d1d1f;font-size:17px;line-height:1.47;font-weight:400;letter-spacing:-.374px;-webkit-font-smoothing:antialiased}
+a{color:#0066cc;text-decoration:none}
+a:hover{text-decoration:underline}
+::selection{background:#0066cc;color:#ffffff}
+
+/* Shared Nav */
+.global-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#000;height:44px;display:flex;align-items:center}
+.global-nav .inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:980px;margin:0 auto;padding:0 22px}
+.nav-logo{color:#fff;font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:12px;letter-spacing:-.12px;transition:color .15s;padding:4px 0}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-cta{background:#0066cc;color:#fff!important;padding:4px 14px;border-radius:9999px;font-size:12px}
+.nav-cta:hover{background:#0071e3}
+.mobile-toggle{display:none;background:none;border:none;color:#fff;font-size:18px;cursor:pointer;padding:4px}
+
+/* Tiles */
+.tile{padding:80px 0}
+.tile-dark{background:#272729;color:#fff}
+.tile-white{background:#fff;color:#1d1d1f}
+.container{max-width:980px;margin:0 auto;padding:0 22px}
+.container-narrow{max-width:680px;margin:0 auto;padding:0 22px}
+
+/* Typography */
+.display-lg{font-size:40px;font-weight:600;line-height:1.1;letter-spacing:0}
+
+/* Page Header */
+.page-header{text-align:center;padding-top:80px}
+.page-header .lead{color:#cccccc;margin-top:12px;font-size:21px;font-weight:400}
+
+/* Legal Content */
+.legal-content h2{font-size:21px;font-weight:600;color:#1d1d1f;margin-top:48px;margin-bottom:16px;letter-spacing:.231px}
+.legal-content h2:first-of-type{margin-top:0}
+.legal-content p,.legal-content li{font-size:17px;font-weight:400;line-height:1.47;letter-spacing:-.374px;color:#1d1d1f;margin-bottom:12px}
+.legal-content ol,.legal-content ul{padding-left:20px;margin-bottom:16px}
+.legal-content li{margin-bottom:8px}
+
+/* Accent Box */
+.accent-box{border-left:3px solid #0066cc;background:#f5f5f7;border-radius:8px;padding:24px;margin:32px 0}
+.accent-box h3{font-size:17px;font-weight:600;color:#0066cc;margin-bottom:12px;letter-spacing:-.374px}
+.accent-box p,.accent-box li{font-size:14px;color:#1d1d1f;line-height:1.43;letter-spacing:-.224px}
+.accent-box ul{padding-left:20px}
+
+/* Footer */
+.footer{background:#f5f5f7;padding:64px 0 32px;color:#333}
+.footer-links{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-bottom:48px}
+.footer-col h4{font-size:14px;font-weight:600;color:#333;margin-bottom:12px;letter-spacing:-.224px}
+.footer-col a{display:block;font-size:12px;color:#333;text-decoration:none;padding:4px 0;line-height:2.41}
+.footer-col a:hover{color:#0066cc}
+.footer-legal{border-top:1px solid #e0e0e0;padding-top:16px;font-size:12px;color:#7a7a7a}
+
+@media(max-width:833px){
+  .global-nav .inner{padding:0 16px}
+  .nav-links{display:none}
+  .mobile-toggle{display:block}
+  .nav-links.open{display:flex;flex-direction:column;position:fixed;top:44px;left:0;right:0;background:#000;padding:16px 22px;gap:16px;z-index:99;border-bottom:1px solid rgba(255,255,255,.1)}
+  .tile{padding:48px 0}
+  .display-lg{font-size:28px}
+  .footer-links{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){.display-lg{font-size:24px}}
+@media(max-width:419px){.footer-links{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="global-nav">
+  <div class="inner">
+    <a href="/" class="nav-logo"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect width="20" height="20" rx="4" fill="#0066cc"/><path d="M6 7h8M6 10h8M6 13h5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>Evo Game Store</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/#produk">Produk</a></li>
+      <li><a href="/contact.html">Kontak</a></li>
+      <li><a href="/faq.html">FAQ</a></li>
+      <li><a href="https://t.me/evogamestorebot" class="nav-cta" target="_blank">Beli Sekarang</a></li>
+    </ul>
+    <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<section class="tile tile-dark page-header">
+  <div class="container-narrow">
+    <h1 class="display-lg">Syarat &amp; Ketentuan</h1>
+    <p class="lead">Terakhir diperbarui: Juni 2026</p>
+  </div>
+</section>
+
+<section class="tile tile-white">
+  <div class="container-narrow legal-content">
+
+    <p style="margin-bottom:32px">Dengan menggunakan layanan Evo Game Store ("kami"), Anda menyetujui syarat dan ketentuan berikut. Mohon baca dengan saksama sebelum melakukan transaksi.</p>
+
+    <h2>1. Umum</h2>
+    <ol>
+      <li>Evo Game Store adalah platform jual beli produk digital berupa akun premium aplikasi dan voucher game.</li>
+      <li>Layanan kami diakses melalui bot Telegram <strong>@evogamestorebot</strong>.</li>
+      <li>Dengan melakukan pembelian, Anda menyatakan telah membaca, memahami, dan menyetujui seluruh syarat &amp; ketentuan ini.</li>
+      <li>Kami berhak mengubah syarat &amp; ketentuan ini sewaktu-waktu tanpa pemberitahuan terlebih dahulu.</li>
+    </ol>
+
+    <h2>2. Produk &amp; Layanan</h2>
+    <ol>
+      <li>Produk yang kami jual meliputi: YouTube Premium, Canva Pro, CapCut Pro, ChatGPT Plus, Gemini Advanced, Grok AI Premium, Amazon Prime Video, Vidio Platinum, Viu Premium, Alight Motion Pro, GSuite Business, dan Custom Link Premium.</li>
+      <li>Harga produk dapat berubah sewaktu-waktu. Harga yang berlaku adalah harga tertera saat transaksi dilakukan.</li>
+      <li>Stok produk tergantung ketersediaan. Produk shared account memiliki stok terbatas dan berubah real-time.</li>
+      <li>Kami menjamin produk yang dijual adalah sah dan diperoleh secara legal.</li>
+    </ol>
+
+    <h2>3. Pendaftaran Akun</h2>
+    <ol>
+      <li>Pengguna wajib memiliki akun Telegram aktif untuk menggunakan layanan kami.</li>
+      <li>Pengguna bertanggung jawab menjaga keamanan akun Telegram-nya masing-masing.</li>
+      <li>Dengan menggunakan bot, pengguna otomatis terdaftar dengan ID Telegram sebagai identifikasi utama.</li>
+    </ol>
+
+    <h2>4. Pembayaran</h2>
+    <ol>
+      <li>Pembayaran melalui saldo bot atau <strong>QRIS</strong> (Quick Response Code Indonesian Standard) via payment gateway <strong>Tripay</strong>.</li>
+      <li>Pembayaran QRIS dapat dilakukan melalui DANA, OVO, GoPay, LinkAja, ShopeePay, Mobile Banking (BCA, BRI, BNI, Mandiri, BSI), dan semua e-wallet/bank yang mendukung QRIS.</li>
+      <li>Total pembayaran meliputi harga produk ditambah biaya layanan payment gateway yang tertera saat transaksi.</li>
+      <li>Nominal transaksi QRIS minimal <strong>Rp 1.000</strong> dan maksimal <strong>Rp 5.000.000</strong>.</li>
+      <li>Batas waktu pembayaran invoice QRIS minimal <strong>10 menit</strong> dan maksimal <strong>1.440 menit (24 jam)</strong>.</li>
+      <li>Kami tidak bertanggung jawab atas kerugian akibat kesalahan penginputan data oleh pengguna.</li>
+    </ol>
+
+    <h2>5. Proses Pengiriman</h2>
+    <ol>
+      <li>Produk digital akan <strong>dikirimkan secara otomatis</strong> setelah pembayaran dikonfirmasi.</li>
+      <li>Estimasi pengiriman produk otomatis (API/H2H): segera setelah pembayaran sukses.</li>
+      <li>Akun shared/manual dikirim dengan prioritas first-come-first-serve sesuai ketersediaan stok.</li>
+      <li>Pengguna wajib memasukkan data target (ID game, email, atau username) yang benar. <strong>Kami tidak bertanggung jawab atas kesalahan penginputan data target oleh pengguna</strong>.</li>
+      <li>Bukti pembelian dan data akses akun dikirimkan melalui chat bot Telegram.</li>
+    </ol>
+
+    <div class="accent-box">
+      <h3>Kebijakan Garansi</h3>
+      <ul>
+        <li><strong>Garansi berlaku</strong> jika akun/voucher tidak dapat digunakan atau berbeda dari yang dipesan <strong>dalam waktu 1×24 jam</strong> setelah pengiriman.</li>
+        <li><strong>Garansi tidak berlaku</strong> jika: (a) akun mati/rusak karena penyalahgunaan pembeli, (b) perubahan password oleh pembeli, (c) pembeli share akun ke pihak lain, (d) melewati batas waktu klaim 24 jam.</li>
+        <li>Klaim garansi melalui menu Hubungi Admin di bot Telegram atau halaman kontak website ini.</li>
+      </ul>
+    </div>
+
+    <h2>6. Saldo Bot</h2>
+    <ol>
+      <li>Saldo bot hanya dapat digunakan untuk pembelian produk di Evo Game Store.</li>
+      <li>Saldo bot <strong>tidak dapat dicairkan</strong> (non-refundable) menjadi uang tunai.</li>
+      <li>Saldo bot <strong>tidak memiliki masa kedaluwarsa</strong>.</li>
+    </ol>
+
+    <h2>7. Larangan</h2>
+    <ol>
+      <li>Memalsukan transaksi.</li>
+      <li>Menyalahgunakan layanan untuk tindakan ilegal.</li>
+      <li>Share/transfer akun premium yang dibeli ke pihak lain di luar tujuan awal pembelian.</li>
+      <li>Melakukan chargeback sepihak tanpa konfirmasi ke customer service.</li>
+    </ol>
+    <p>Pelanggaran mengakibatkan <strong>pemblokiran akun secara permanen</strong> tanpa refund.</p>
+
+    <h2>8. Batasan Tanggung Jawab</h2>
+    <ol>
+      <li>Kami berkomitmen memberikan layanan terbaik namun tidak menjamin layanan selalu tersedia tanpa gangguan teknis.</li>
+      <li>Kami tidak bertanggung jawab atas gangguan yang disebabkan pihak ketiga (server Telegram, payment gateway, penyedia API).</li>
+      <li>Kami tidak bertanggung jawab jika akun premium di-ban/suspend oleh pihak penyedia layanan setelah periode garansi berakhir.</li>
+      <li>Ganti rugi maksimal tidak melebihi nominal yang telah dibayarkan pengguna.</li>
+    </ol>
+
+    <h2>9. Penyelesaian Sengketa</h2>
+    <ol>
+      <li>Segala sengketa diselesaikan secara musyawarah terlebih dahulu.</li>
+      <li>Hal-hal yang belum diatur dalam S&amp;K ini akan ditentukan berdasarkan kesepakatan bersama.</li>
+    </ol>
+
+    <h2>10. Kontak</h2>
+    <p>Jika memiliki pertanyaan mengenai Syarat &amp; Ketentuan ini, hubungi:</p>
+    <ul>
+      <li>Telegram: <a href="https://t.me/evogamestorebot" target="_blank">@evogamestorebot</a></li>
+      <li>Admin: <a href="https://t.me/zidanbocil88" target="_blank">@zidanbocil88</a></li>
+      <li>Email: <a href="mailto:admin@evogamestore.com">admin@evogamestore.com</a></li>
+    </ul>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-links">
+      <div class="footer-col"><h4>Shop</h4><a href="https://t.me/evogamestorebot" target="_blank">Telegram Bot</a><a href="/#produk">Catalog</a><a href="/faq.html">How to Buy</a></div>
+      <div class="footer-col"><h4>Payment</h4><a href="/faq.html">QRIS</a><a href="/faq.html">Bot Balance</a><a href="/terms.html">Refund Policy</a></div>
+      <div class="footer-col"><h4>Support</h4><a href="/faq.html">FAQ</a><a href="/contact.html">Contact Us</a><a href="/terms.html">Warranty</a></div>
+      <div class="footer-col"><h4>About</h4><a href="/terms.html">Terms &amp; Conditions</a><a href="/contact.html">Contact</a><a href="https://t.me/zidanbocil88" target="_blank">Admin</a></div>
+    </div>
+    <div class="footer-legal">© 2026 Evo Game Store. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>
