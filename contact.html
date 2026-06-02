@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak — EVO GAME STORE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@400;600&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Work Sans',sans-serif;background:#fff;color:#000;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:#00f;text-decoration:underline}
+a:hover{color:#000}
+.nav{border-bottom:3px solid #000;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:#fff;z-index:100}
+.nav-logo{font-family:'Archivo Black',sans-serif;font-size:22px;text-transform:uppercase;letter-spacing:2px;color:#000;text-decoration:none}
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center}
+.nav-links a{color:#000;text-decoration:none;font-size:14px;text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.nav-links a:hover{text-decoration:underline;color:#00f}
+.nav-cta{background:#000;color:#fff;border:3px solid #000;padding:8px 20px;font-size:12px;text-transform:uppercase;letter-spacing:2px;text-decoration:none;font-weight:600}
+.nav-cta:hover{background:#fff;color:#000}
+.mobile-toggle{display:none;background:none;border:3px solid #000;padding:4px 8px;font-family:'Space Mono',monospace;font-size:16px;cursor:pointer}
+.section{padding:80px 24px;border-bottom:3px solid #000}
+.section-dark{background:#000;color:#fff;border-bottom:3px solid #000}
+.section-dark a{color:#fff}
+.container{max-width:1200px;margin:0 auto}
+h1{font-family:'Archivo Black',sans-serif;font-size:64px;line-height:1;text-transform:uppercase;margin-bottom:24px}
+h2{font-family:'Archivo Black',sans-serif;font-size:48px;line-height:1.05;text-transform:uppercase;margin-bottom:40px}
+.lead{font-size:21px;line-height:1.4;max-width:600px}
+.btn-primary{background:#000;color:#fff;border:3px solid #000;padding:16px 40px;font-size:18px;text-transform:uppercase;letter-spacing:2px;font-family:'Work Sans',sans-serif;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block}
+.btn-primary:hover{background:#fff;color:#000}
+.btn-secondary{background:#fff;color:#000;border:3px solid #000;padding:16px 40px;font-size:18px;text-transform:uppercase;letter-spacing:2px;font-family:'Work Sans',sans-serif;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block}
+.btn-secondary:hover{background:#000;color:#fff}
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.contact-card{border:3px solid #000;padding:32px 24px;text-align:center;background:#fff}
+.contact-card .icon{font-size:48px;margin-bottom:16px;display:block}
+.contact-card h3{font-family:'Work Sans',sans-serif;font-size:22px;font-weight:600;margin-bottom:12px;text-transform:uppercase}
+.contact-card p{font-size:16px;margin-bottom:24px;line-height:1.6}
+.info-list{list-style:none;padding:0;margin:40px 0}
+.info-list li{border-bottom:3px solid #000;padding:16px 0;font-family:'Space Mono',monospace;font-size:15px}
+.info-list li strong{font-family:'Work Sans',sans-serif}
+.cta-section{text-align:center;padding:120px 24px}
+.cta-section h1{margin-bottom:24px}
+.footer{border-top:5px solid #000;padding:64px 24px 32px;background:#fff}
+.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;margin-bottom:48px}
+.footer-col h4{font-family:'Archivo Black',sans-serif;font-size:14px;text-transform:uppercase;margin-bottom:16px;letter-spacing:1px}
+.footer-col a{display:block;color:#000;text-decoration:none;padding:6px 0;font-size:14px;border-bottom:1px solid #000}
+.footer-col a:hover{background:#000;color:#fff;padding:6px 8px}
+.footer-legal{border-top:3px solid #000;padding-top:16px;font-family:'Space Mono',monospace;font-size:12px}
+@media(max-width:900px){
+  .nav-links{display:none}
+  .mobile-toggle{display:block}
+  .nav-links.open{display:flex;flex-direction:column;position:fixed;top:60px;left:0;right:0;background:#fff;border:3px solid #000;padding:16px;gap:16px;z-index:99}
+  h1{font-size:42px}
+  h2{font-size:32px}
+  .card-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:500px){
+  h1{font-size:32px}
+  h2{font-size:28px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">EVO GAME STORE</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/#produk">PRODUK</a></li>
+    <li><a href="/contact.html">KONTAK</a></li>
+    <li><a href="/faq.html">FAQ</a></li>
+    <li><a href="https://t.me/evogamestorebot" class="nav-cta" target="_blank">BELI SEKARANG</a></li>
+  </ul>
+  <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">MENU</button>
+</nav>
+
+<section class="section-dark" style="padding:120px 24px 80px;text-align:center">
+  <div class="container">
+    <p style="font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:2px;margin-bottom:16px">HUBUNGI KAMI</p>
+    <h1 style="color:#fff">CONTACT US</h1>
+    <p class="lead" style="color:#ccc;margin:0 auto">Tim kami siap membantu. Pilih channel yang paling nyaman.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="card-grid">
+      <div class="contact-card">
+        <span class="icon">🤖</span>
+        <h3>TELEGRAM BOT</h3>
+        <p>Cara tercepat. Tanya apa saja ke bot 24/7.</p>
+        <a href="https://t.me/evogamestorebot" class="btn-primary" target="_blank">BUKA BOT →</a>
+      </div>
+      <div class="contact-card">
+        <span class="icon">👤</span>
+        <h3>ADMIN</h3>
+        <p>Untuk masalah kompleks, garansi, dan sengketa.</p>
+        <a href="https://t.me/zidanbocil88" class="btn-primary" target="_blank">HUBUNGI ADMIN →</a>
+      </div>
+      <div class="contact-card">
+        <span class="icon">📧</span>
+        <h3>EMAIL</h3>
+        <p>Untuk kerja sama bisnis & partnership.</p>
+        <a href="mailto:admin@evogamestore.com" class="btn-secondary">KIRIM EMAIL →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark">
+  <div class="container">
+    <h2 style="color:#fff">JAM OPERASIONAL</h2>
+    <ul class="info-list">
+      <li style="border-color:#333;color:#ccc"><strong style="color:#fff">BOT OTOMATIS:</strong> 24 JAM / 7 HARI</li>
+      <li style="border-color:#333;color:#ccc"><strong style="color:#fff">CUSTOMER SERVICE:</strong> SETIAP HARI, 08.00 – 24.00 WIB</li>
+      <li style="border-color:#333;color:#ccc"><strong style="color:#fff">RESPON RATA-RATA:</strong> 5–30 MENIT SELAMA JAM OPERASIONAL</li>
+    </ul>
+    <h2 style="color:#fff;margin-top:64px">TIPS RESPON CEPAT</h2>
+    <ul class="info-list">
+      <li style="border-color:#333;color:#ccc">SERTAKAN <strong style="color:#fff">ID PESANAN</strong> ATAU <strong style="color:#fff">SCREENSHOT</strong> TRANSAKSI.</li>
+      <li style="border-color:#333;color:#ccc">JELASKAN MASALAH DENGAN <strong style="color:#fff">DETAIL DAN JELAS</strong>.</li>
+      <li style="border-color:#333;color:#ccc">GUNAKAN FITUR <strong style="color:#fff">"HUBUNGI ADMIN"</strong> DI BOT.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section cta-section">
+  <div class="container">
+    <h1>AYO MULAI BERBELANJA</h1>
+    <p style="font-size:21px;margin-bottom:40px">Buka bot Telegram kami sekarang.</p>
+    <a href="https://t.me/evogamestorebot" class="btn-primary" target="_blank">BUKA @EVOGAMESTOREBOT</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col"><h4>BELANJA</h4><a href="https://t.me/evogamestorebot" target="_blank">TELEGRAM BOT</a><a href="/#produk">KATALOG</a><a href="/faq.html">CARA BELI</a></div>
+      <div class="footer-col"><h4>PEMBAYARAN</h4><a href="/faq.html">QRIS</a><a href="/faq.html">SALDO BOT</a><a href="/terms.html">REFUND</a></div>
+      <div class="footer-col"><h4>BANTUAN</h4><a href="/faq.html">FAQ</a><a href="/contact.html">CS</a><a href="/terms.html">GARANSI</a></div>
+      <div class="footer-col"><h4>TENTANG</h4><a href="/terms.html">S&K</a><a href="/contact.html">KONTAK</a><a href="https://t.me/zidanbocil88" target="_blank">ADMIN</a></div>
+    </div>
+    <div class="footer-legal">© 2026 EVO GAME STORE. ALL RIGHTS RESERVED.</div>
+  </div>
+</footer>
+
+<script>document.querySelector('.mobile-toggle').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open')})</script>
+</body>
+</html>

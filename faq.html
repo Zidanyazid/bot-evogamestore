@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — EVO GAME STORE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@400;600&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Work Sans',sans-serif;background:#fff;color:#000;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:#00f;text-decoration:underline}
+a:hover{color:#000}
+.nav{border-bottom:3px solid #000;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:#fff;z-index:100}
+.nav-logo{font-family:'Archivo Black',sans-serif;font-size:22px;text-transform:uppercase;letter-spacing:2px;color:#000;text-decoration:none}
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center}
+.nav-links a{color:#000;text-decoration:none;font-size:14px;text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.nav-links a:hover{text-decoration:underline;color:#00f}
+.nav-cta{background:#000;color:#fff;border:3px solid #000;padding:8px 20px;font-size:12px;text-transform:uppercase;letter-spacing:2px;text-decoration:none;font-weight:600}
+.nav-cta:hover{background:#fff;color:#000}
+.mobile-toggle{display:none;background:none;border:3px solid #000;padding:4px 8px;font-family:'Space Mono',monospace;font-size:16px;cursor:pointer}
+.section{padding:80px 24px;border-bottom:3px solid #000}
+.section-dark{background:#000;color:#fff;border-bottom:3px solid #000}
+.container{max-width:1200px;margin:0 auto}
+.container-narrow{max-width:800px;margin:0 auto}
+h1{font-family:'Archivo Black',sans-serif;font-size:64px;line-height:1;text-transform:uppercase;margin-bottom:24px}
+.lead{font-size:21px;line-height:1.4;max-width:600px}
+.btn-primary{background:#000;color:#fff;border:3px solid #000;padding:16px 40px;font-size:18px;text-transform:uppercase;letter-spacing:2px;font-family:'Work Sans',sans-serif;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block}
+.btn-primary:hover{background:#fff;color:#000}
+.btn-secondary{background:#fff;color:#000;border:3px solid #000;padding:16px 40px;font-size:18px;text-transform:uppercase;letter-spacing:2px;font-family:'Work Sans',sans-serif;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block}
+.btn-secondary:hover{background:#000;color:#fff}
+.faq-category{margin-bottom:64px}
+.faq-category-header{font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:2px;color:#00f;margin-bottom:24px;display:block;border-bottom:3px solid #00f;padding-bottom:12px}
+.faq-item{border-bottom:3px solid #000;cursor:pointer;transition:background .2s}
+.faq-item:first-child{border-top:3px solid #000}
+.faq-item summary{padding:24px 0;cursor:pointer;list-style:none;font-size:18px;font-weight:600;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';font-family:'Space Mono',monospace;font-size:24px;font-weight:normal;margin-left:16px}
+.faq-item[open] summary::after{content:'−'}
+.faq-item[open] summary{color:#00f}
+.faq-item summary:hover{background:#f0f0f0;padding-left:8px}
+.faq-answer{padding:0 0 24px 8px;font-size:16px;line-height:1.6;max-width:600px}
+.faq-answer strong{color:#000}
+.cta-section{text-align:center;padding:120px 24px}
+.cta-section h1{margin-bottom:24px}
+.footer{border-top:5px solid #000;padding:64px 24px 32px;background:#fff}
+.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;margin-bottom:48px}
+.footer-col h4{font-family:'Archivo Black',sans-serif;font-size:14px;text-transform:uppercase;margin-bottom:16px;letter-spacing:1px}
+.footer-col a{display:block;color:#000;text-decoration:none;padding:6px 0;font-size:14px;border-bottom:1px solid #000}
+.footer-col a:hover{background:#000;color:#fff;padding:6px 8px}
+.footer-legal{border-top:3px solid #000;padding-top:16px;font-family:'Space Mono',monospace;font-size:12px}
+@media(max-width:900px){
+  .nav-links{display:none}
+  .mobile-toggle{display:block}
+  .nav-links.open{display:flex;flex-direction:column;position:fixed;top:60px;left:0;right:0;background:#fff;border:3px solid #000;padding:16px;gap:16px;z-index:99}
+  h1{font-size:42px}
+  .footer-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:500px){h1{font-size:32px}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">EVO GAME STORE</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/#produk">PRODUK</a></li>
+    <li><a href="/contact.html">KONTAK</a></li>
+    <li><a href="/faq.html">FAQ</a></li>
+    <li><a href="https://t.me/evogamestorebot" class="nav-cta" target="_blank">BELI SEKARANG</a></li>
+  </ul>
+  <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">MENU</button>
+</nav>
+
+<section class="section-dark" style="padding:120px 24px 80px;text-align:center">
+  <div class="container">
+    <p style="font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:2px;margin-bottom:16px">JAWABAN</p>
+    <h1 style="color:#fff">FAQ</h1>
+    <p class="lead" style="color:#ccc;margin:0 auto">Temukan jawaban untuk pertanyaan yang sering diajukan.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-narrow">
+
+    <div class="faq-category">
+      <span class="faq-category-header">UMUM</span>
+      <details class="faq-item"><summary>APA ITU EVO GAME STORE?</summary><div class="faq-answer">EVO GAME STORE adalah toko digital yang menjual akun premium aplikasi seperti YouTube Premium, Canva Pro, CapCut Pro, ChatGPT Plus, dan lainnya. Semua transaksi dilakukan melalui bot Telegram otomatis 24/7.</div></details>
+      <details class="faq-item"><summary>BAGAIMANA CARA BERBELANJA?</summary><div class="faq-answer">Buka @evogamestorebot di Telegram, pilih produk, masukkan data target (ID/email), lalu bayar melalui QRIS atau Saldo Bot. Produk dikirim otomatis setelah pembayaran dikonfirmasi.</div></details>
+      <details class="faq-item"><summary>APAKAH BUTUH APLIKASI TAMBAHAN?</summary><div class="faq-answer">TIDAK. Semua proses dilakukan melalui Telegram. Cukup buka bot @evogamestorebot dan ikuti petunjuknya.</div></details>
+      <details class="faq-item"><summary>PRODUK APA SAJA YANG TERSEDIA?</summary><div class="faq-answer">YouTube Premium, Canva Pro, CapCut Pro, ChatGPT Plus, Gemini Advanced, Grok AI Premium, Amazon Prime Video, Vidio Platinum, Viu Premium, Alight Motion Pro, GSuite Business, dan lainnya.</div></details>
+    </div>
+
+    <div class="faq-category">
+      <span class="faq-category-header">PEMBAYARAN</span>
+      <details class="faq-item"><summary>METODE PEMBAYARAN APA SAJA?</summary><div class="faq-answer">QRIS (DANA, OVO, GoPay, LinkAja, ShopeePay, Mobile Banking) dan Saldo Bot.</div></details>
+      <details class="faq-item"><summary>BERAPA FEE QRIS?</summary><div class="faq-answer">Biaya QRIS: <strong>Rp 750 + 0.7%</strong> dari nominal. Contoh: beli Rp 10.000 → fee Rp 750 + Rp 70 = Rp 820. Total bayar: <strong>Rp 10.820</strong>.</div></details>
+      <details class="faq-item"><summary>MINIMAL DAN MAKSIMAL TRANSAKSI?</summary><div class="faq-answer">Minimal: <strong>Rp 1.000</strong>. Maksimal: <strong>Rp 5.000.000</strong>.</div></details>
+      <details class="faq-item"><summary>APA ITU SALDO BOT?</summary><div class="faq-answer">Saldo Bot adalah wallet internal EVO GAME STORE. <strong>TIDAK DAPAT DICAIRKAN</strong> ke uang tunai dan <strong>TIDAK MEMILIKI MASA KEDALUWARSA</strong>. Isi ulang melalui transfer bank atau promosi khusus.</div></details>
+    </div>
+
+    <div class="faq-category">
+      <span class="faq-category-header">PENGIRIMAN & GARANSI</span>
+      <details class="faq-item"><summary>BERAPA LAMA PRODUK DIKIRIM?</summary><div class="faq-answer">Produk API/H2H dikirim <strong>OTOMATIS DALAM HITUNGAN DETIK</strong> setelah pembayaran dikonfirmasi. Produk shared dikirim sesuai ketersediaan stok.</div></details>
+      <details class="faq-item"><summary>BAGAIMANA JIKA PRODUK TIDAK BERFUNGSI?</summary><div class="faq-answer">Klaim <strong>GARANSI 24 JAM</strong> melalui menu Hubungi Admin di bot. Kami akan mengecek dan memberikan penggantian.</div></details>
+      <details class="faq-item"><summary>KAPAN GARANSI TIDAK BERLAKU?</summary><div class="faq-answer">Garansi <strong>TIDAK BERLAKU</strong> jika: akun rusak karena penyalahgunaan pembeli, pembeli mengubah password, pembeli share akun, klaim melewati 24 jam.</div></details>
+      <details class="faq-item"><summary>APAKAH BISA REFUND?</summary><div class="faq-answer">Refund hanya jika produk benar-benar tidak sesuai dan tidak dapat diganti. Saldo Bot NON-REFUNDABLE.</div></details>
+    </div>
+
+  </div>
+</section>
+
+<section class="section-dark cta-section">
+  <div class="container">
+    <h1 style="color:#fff">MASIH ADA PERTANYAAN?</h1>
+    <p style="font-size:21px;margin-bottom:40px;color:#ccc">Tim support kami siap membantu.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+      <a href="https://t.me/evogamestorebot" class="btn-primary" style="background:#fff;color:#000;border-color:#fff" target="_blank">TANYA VIA TELEGRAM</a>
+      <a href="/contact.html" class="btn-secondary" style="border-color:#fff;color:#fff">HALAMAN KONTAK</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col"><h4>BELANJA</h4><a href="https://t.me/evogamestorebot" target="_blank">TELEGRAM BOT</a><a href="/#produk">KATALOG</a><a href="/faq.html">CARA BELI</a></div>
+      <div class="footer-col"><h4>PEMBAYARAN</h4><a href="/faq.html">QRIS</a><a href="/faq.html">SALDO BOT</a><a href="/terms.html">REFUND</a></div>
+      <div class="footer-col"><h4>BANTUAN</h4><a href="/faq.html">FAQ</a><a href="/contact.html">CS</a><a href="/terms.html">GARANSI</a></div>
+      <div class="footer-col"><h4>TENTANG</h4><a href="/terms.html">S&K</a><a href="/contact.html">KONTAK</a><a href="https://t.me/zidanbocil88" target="_blank">ADMIN</a></div>
+    </div>
+    <div class="footer-legal">© 2026 EVO GAME STORE. ALL RIGHTS RESERVED.</div>
+  </div>
+</footer>
+
+<script>document.querySelector('.mobile-toggle').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open')})</script>
+</body>
+</html>
